@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kysely liikunnan aloittamisesta</title>
+<style>
+input[type=text], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+width: 100%;
+}
+
+textarea {
+  width: 50%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+select {
+  width: 25%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+@media screen and (max-width: 600px) {
+   input[type=submit]{
+    width: 30%;
+    padding: 0;
+  }
+}
+
+</style>
+<body>
+<div>
+<form action="/action_page.php">
+
+
+    <legend>Kysely liikunnan aloittamiseen:</legend>
+    <label for="fname">Etunimi:</label><br>
+    <input type="text" id="fname" name="fname" textarea placeholder="Anna etunimesi"><br>
+    <label for="lname">Sukunimi:</label><br>
+    <input type="text" id="lname" name="lname" textarea placeholder="Anna sukunimesi">
+
+<p> Monta kertaa viikossa harrastat liikuntaa?</p>
+  <input type="radio" id="1" name="viikossa" value="1">
+  <label for="1">1-2 kertaa viikossa</label><br>
+
+  <input type="radio" id="2" name="viikossa" value="2">
+  <label for="2">3-4 kertaa viikossa</label><br>
+
+  <input type="radio" id="3" name="viikossa" value="3">
+  <label for="3">5-6 kertaa viikossa</label><br>
+
+  <input type="radio" id="4" name="viikossa" value="4">
+  <label for="4">yli 7 kertaa viikossa</label>
+<br><br>
+
+<p>Onko sinulla sairauksia/muuta estettä liikkumiselle?</p>
+<form>
+  <select id="este" name="este">
+  <option value="kyllä">Sairaus, joka estää liikkumisen</option>
+  <option value="vamma">Vamma, joka estää liikkumisen</option>
+  <option value="ei">Ei estettä liikkumiselle</option>
+  </select>
+</form>
+<p>Voit antaa tähän lisätietoja tilanteestasi.</p>
+<form>
+<textarea placeholder="Kirjoita tähän.."></textarea>
+</form>
+
+<br><br>
+<p>Mieluisat liikuntalajit (voit valita useamman vaihtoehdon):</p>
+  <input type="checkbox" id="laji1" name="laji1" value="Juoksu">
+  <label for="Juoksu">Juoksu</label><br>
+  <input type="checkbox" id="laji2" name="laji2" value="Kävely">
+  <label for="Kävely">Kävely</label><br>
+  <input type="checkbox" id="laji3" name="laji3" value="Hiihto">
+  <label for="Hiihto">Hiihto</label><br>
+  <input type="checkbox" id="laji4" name="laji4" value="Luistelu">
+  <label for="Luistelu">Luistelu</label><br>
+  <input type="checkbox" id="laji5" name="laji5" value="Ryhmäliikunta">
+  <label for="Ryhmäliikunta">Ryhmäliikunta</label><br>
+  <input type="checkbox" id="laji6" name="laji6" value="Tanssi">
+  <label for="Tanssi">Tanssi</label><br>
+  <input type="checkbox" id="laji7" name="laji7" value="Uinti">
+  <label for="Uinti">Uinti</label>
+
+<br><br>
+<p>Mitä tavoitteita haluat asettaa</p>
+<form>
+<textarea placeholder="Kirjoita tähän.."></textarea>
+</form>
+<br><br>
+
+<form action="/action_page.php">
+<input type="submit" formtarget="_blank" value="Lähetä">
+
+
+</form>
+</div>
+</body>
+</html>
