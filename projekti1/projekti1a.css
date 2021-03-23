@@ -1,3 +1,4 @@
+/*Copyright Elina Luumi */
 input[type=text], select {
     width: 30%;
     padding: 12px 20px;
@@ -57,8 +58,13 @@ input[type=text], select {
 /* Tonin lisäykset ja ehdotukset tästä alaspäin */
   .art
   {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Architects Daughter', cursive;
+
   }
+  
+  
+    
+  
 
   button{
     background-color: lightgreen;

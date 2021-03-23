@@ -3,6 +3,9 @@
 function tarkista() {
     var etunimi = document.forms["kysely"]["fname"].value;
     var sukunimi = document.forms["kysely"]["lname"].value;
+
+
+    
     if (etunimi == "") {
       alert("Laittakee etunimi");
       return false;
