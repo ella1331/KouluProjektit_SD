@@ -54,4 +54,13 @@ input[type=text], select {
       padding: 0;
     }
   }
+/* Tonin lisäykset ja ehdotukset tästä alaspäin */
+  .art
+  {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  button{
+    background-color: lightgreen;
+  }
   

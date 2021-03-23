@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="projekti1a.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Tonin lisäämä, saa muokata vapaasti. Lisätty google fonteista linkki tyyleihin -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="projekti1a.js"></script>
 <title>Kysely liikunnan aloittamisesta</title>
+
+
 <body>
-<div>
-<form action="/action_page.php">
 
-
-
+  <div class="art"> <!-- Lisäsin diville nimin art, löytyy tyylimäärityksissä sillä-->
+    <form name="kysely" onsubmit="return tarkista()" method="post" required> <!-- Lisätty functio tarkista-->
 
     <legend>Kysely liikunnan aloittamiseen:</legend>
     <label for="fname">Etunimi:</label><br>
@@ -70,11 +73,12 @@
 </form>
 <br><br>
 
-<form action="/action_page.php">
-<input type="submit" formtarget="_blank" value="Lähetä">
+<!-- Vaihdoin submitin buttoniksi, helpoin minulle toteuttaa. Jos pidätte submitista enemmän
+niin laittakee se :D -->
+<button type="button" name="button" onclick="tarkista()">Lähetä</button>
 
 
-</form>
+
 </div>
 </body>
 </html>
