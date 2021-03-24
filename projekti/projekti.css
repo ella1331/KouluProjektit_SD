@@ -1,0 +1,24 @@
+.ruutu 
+{
+font-family: 'Nunito', sans-serif;
+background-color:lightgrey;
+border-radius: 2%;
+box-sizing: border-box;
+border: black;
+border-width: 2px;
+border-style: solid;
+padding: 6%;
+float:left;
+display: block;
+margin-left: 1%;
+}
+
+p
+{
+    font-weight: bold;
+}
+
+textarea {
+    width: 250px;
+    height: 150px;
+}

@@ -1,9 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="projekti.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
+    <script src="projekti.js"></script>
+    <title>Asiakaspalvelu chat</title>
+</head>
+<body>
+<div class="ruutu">
 <h1>Asiakaspalvelu chat</h1>
 <br>
 <br>
 <form>
-    <input type="text" name="text" id="nimi" placeholder="Nimi"><br><br>
-    <input type="text" name="text" id="email" placeholder="Sähköposti"><br>
+    <input style="border-style:solid;border-radius: 5%; width: 250px; height: 20px;" type="text" name="text" id="nimi" placeholder="Nimi"><br><br>
+    <input style="border-style:solid;border-radius: 5%; width: 250px; height: 20px;" type="text" name="text" id="email" placeholder="Sähköposti"><br>
 </form>
 
 <p>Palvelunkieli</p>
@@ -12,15 +25,24 @@
     <option value="ruotsi">Ruotsi</option>
     <option value="englanti">Englanti</option>
 </select>
-<br>
+<br><br><br>
+<p>Valitse seuraavista palveluista:</p>
 
-<input type="checkbox" id="palvelu1" name="palvelu1" value="Päivittäiset raha-asiat">
+<input type="radio" id="palvelu1" name="palvelu" value="1">
     <label for="palvelu1">Päivittäiset raha-asiat</label><br>
-<input type="checkbox" id="palvelu2" name="palvelu2" value="Säästäminen ja sijoittaminen">
+<input type="radio" id="palvelu2" name="palvelu" value="2">
     <label for="palvelu2">Säästäminen ja sijoittaminen</label><br>
-<input type="checkbox" id="palvelu3" name="palvelu3" value="Lainat">
+<input type="radio" id="palvelu3" name="palvelu" value="3">
     <label for="palvelu3">Lainat</label><br>
-<input type="checkbox" id="palvelu4" name="palvelu4" value="Vakuutusasiat">
+<input type="radio" id="palvelu4" name="palvelu" value="4">
     <label for="palvelu4">Vakuutusasiat</label><br>
-<input type="checkbox" id="palvelu5" name="palvelu5" value="Edut ja muut">
+<input type="radio" id="palvelu5" name="palvelu" value="5">
     <label for="palvelu5">Edut ja muut</label><br>
+
+<p>Kiitos, kertoisitko tarkemmin:</p>
+<textarea placeholder="Kirjoita tähän..."></textarea><br><br><br>
+
+<button style="background-color: rgb(248, 204, 186); font-family: 'Nunito', sans-serif; font-weight: bold;" type="button" name="button" onclick="">Avaa chatti</button>
+</div>
+</body>
+</html>
