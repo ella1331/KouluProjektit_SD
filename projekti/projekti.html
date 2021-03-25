@@ -21,6 +21,7 @@
 
 <p>Palvelunkieli</p>
 <select name="kieli" id="kieli">
+    <option value="" disabled selected>Valitse kieli</option>
     <option value="suomi">Suomi</option>
     <option value="ruotsi">Ruotsi</option>
     <option value="englanti">Englanti</option>
@@ -28,21 +29,21 @@
 <br><br><br>
 <p>Valitse seuraavista palveluista:</p>
 
-<input type="radio" id="palvelu1" name="palvelu" value="1">
+<input type="radio" id="palvelu" name="palvelu" value="1">
     <label for="palvelu1">Päivittäiset raha-asiat</label><br>
-<input type="radio" id="palvelu2" name="palvelu" value="2">
+<input type="radio" id="palvelu" name="palvelu" value="2">
     <label for="palvelu2">Säästäminen ja sijoittaminen</label><br>
-<input type="radio" id="palvelu3" name="palvelu" value="3">
+<input type="radio" id="palvelu" name="palvelu" value="3">
     <label for="palvelu3">Lainat</label><br>
-<input type="radio" id="palvelu4" name="palvelu" value="4">
+<input type="radio" id="palvelu" name="palvelu" value="4">
     <label for="palvelu4">Vakuutusasiat</label><br>
-<input type="radio" id="palvelu5" name="palvelu" value="5">
+<input type="radio" id="palvelu" name="palvelu" value="5">
     <label for="palvelu5">Edut ja muut</label><br>
 
 <p>Kiitos, kertoisitko tarkemmin:</p>
-<textarea placeholder="Kirjoita tähän..."></textarea><br><br><br>
+<textarea id="alue" placeholder="Kirjoita tähän..."></textarea><br><br><br>
 
-<button style="background-color: rgb(248, 204, 186); font-family: 'Nunito', sans-serif; font-weight: bold;" type="button" name="button" onclick="">Avaa chatti</button>
+<button style="background-color: rgb(248, 204, 186); font-family: 'Nunito', sans-serif; font-weight: bold;" type="button" name="button" onclick="tarkista()">Avaa chatti</button>
 </div>
 </body>
 </html>
