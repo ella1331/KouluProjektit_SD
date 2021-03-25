@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"">
+    <link rel="stylesheet" href="projekti1_b.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
+    <script src="projekti1_b.js"></script>
+    <title>Personal Trainer kysely</title>
+  </head>
+  <body>
+    <div class="alku"
+    <h1>Personal Trainer kysely</h1>
+      <br>
+      <br>
+  <p>Lyhyt PT-kysely ennen kuntosaliohjausta.</p>
+  </div>
+<br>
+<br>
+<form id="kyselylomake">
+  <p>Kyselylomake</p>
+<input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
+type="text" name="text" id="nimisyotto" placeholder="Nimi"><br><br>
+<input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
+type="text" name="text" id="emailsyotto" placeholder="Email"><br><br>
+<input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
+type="text" name="text" id="ikasyotto" placeholder="Ikä"><br><br>
+<br>
+
+<div class="viikkoMäärä">
+<p>Kuinka usein harrastat liikuntaa viikossa?</p>
+<input type="radio" id="määrä" name="määrä" value="1">
+    <label for="määrä1">1-2 kertaa viikossa.</label><br>
+<input type="radio" id="määrä" name="määrä" value="2">
+    <label for="määrä2">3-4 kertaa viikossa.</label><br>
+<input type="radio" id="määrä" name="määrä" value="3">
+    <label for="määrä3">5 kertaa tai enemmän.</label><br>
+</div>
+<div class="mieltymykset">
+<p>Valitse sopiva kiinnostuksen kohde?</p>
+    <input type="radio" id="kiinnostus" name="kiinnostus" value="1">
+        <label for="kiinnostus1">Ulkoliikunta</label><br>
+    <input type="radio" id="kiinnostus" name="kiinnostus" value="2">
+        <label for="kiinnostus2">Sisäliikunta</label><br>
+    <input type="radio" id="kiinnostus" name="kiinnostus" value="3">
+        <label for="kiinnostus3">Molemmat</label><br>
+</div>
+<div class="valinta" <!-- Tarkistatko Toni nämä vielä, kun tiedän että illalla tuut kuitenkin koodaa :D -->
+<p>Mieluisat liikuntalajit (voit valita useamman vaihtoehdon):</p>
+  <input type="checkbox" id="laji1" name="laji1" value="Juoksu">
+    <label for="Juoksu">Juoksu</label><br>
+  <input type="checkbox" id="laji2" name="laji2" value="Kävely">
+    <label for="Kävely">Kävely</label><br>
+  <input type="checkbox" id="laji3" name="laji3" value="Hiihto">
+    <label for="Hiihto">Hiihto</label><br>
+  <input type="checkbox" id="laji4" name="laji4" value="Luistelu">
+    <label for="Luistelu">Luistelu</label><br>
+  <input type="checkbox" id="laji5" name="laji5" value="Ryhmäliikunta">
+    <label for="Ryhmäliikunta">Ryhmäliikunta</label><br>
+  <input type="checkbox" id="laji6" name="laji6" value="Tanssi">
+    <label for="Tanssi">Tanssi</label><br>
+  <input type="checkbox" id="laji7" name="laji7" value="Uinti">
+    <label for="Uinti">Uinti</label>
+</div>
+
+<p>Onko sinulla sairauksia/muuta estettä liikkumiselle?</p>
+<!--Tuliko tähän div?-->
+    <select id="este" name="este">
+      <option value="">Valitse...</option>
+     <option value="kyllä">Sairaus, joka estää liikkumisen</option>
+     <option value="vamma">Vamma, joka estää liikkumisen</option>
+     <option value="ei">Ei estettä liikkumiselle</option>
+    </select>
+  <br>
+  <br>
+  <p>Mitä tavoitteita haluat asettaa</p>
+    <!--Entäs tähän?? div... -->
+      <textarea placeholder="Kirjoita tähän.."></textarea>
+<br>
+<br>
+<button type="button" name="button" onclick="tarkista()">Lähetä</button>
+
+<!-- muuta ihan rauhassa näitä kysymyksiä, jos tarttee!-->
+</form>
+
+  </body>
+</html>
