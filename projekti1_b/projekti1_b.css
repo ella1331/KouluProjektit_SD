@@ -14,8 +14,10 @@ textarea {
     height: 150px;
   }
 
-  button {
+button {
       background-color:rgb(125, 202, 228);
       font-family: 'Indie Flower', cursive;
       font-size:20px;
   }
+
+  

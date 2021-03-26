@@ -18,10 +18,13 @@
 <br>
 <form id="kyselylomake">
   <p>Kyselylomake</p>
+<label for="nimi">Nimi</label><br>
 <input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
 type="text" name="text" id="nimisyotto" placeholder="Nimi"><br><br>
+<label for="email">Email</label><br>
 <input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
 type="text" name="text" id="emailsyotto" placeholder="Email"><br><br>
+<label for="ikä">Ikä</label><br>
 <input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
 type="text" name="text" id="ikasyotto" placeholder="Ikä"><br><br>
 <br>
@@ -61,9 +64,9 @@ type="text" name="text" id="ikasyotto" placeholder="Ikä"><br><br>
   <input type="checkbox" id="laji7" name="laji7" value="Uinti">
     <label for="Uinti">Uinti</label>
 </div>
-<div class="pudotus">
+<div class="dropdown">
 <p>Onko sinulla sairauksia/muuta estettä liikkumiselle?</p>
-    <select id="este" name="este">
+    <select id="pudotus" name="este">
       <option value="">Valitse...</option>
      <option value="kyllä">Sairaus, joka estää liikkumisen</option>
      <option value="vamma">Vamma, joka estää liikkumisen</option>
@@ -78,9 +81,10 @@ type="text" name="text" id="ikasyotto" placeholder="Ikä"><br><br>
       </div>
 <br>
 <br>
-<button type="button" name="button" onclick="tarkista()">Lähetä</button>
+<button id="laheta" type="button" name="button" onclick="tarkistus()">Lähetä</button>
 
 <!-- muuta ihan rauhassa näitä kysymyksiä, jos tarttee!-->
+<!-- Tosi hyvät nää on, t:toni-->
 </form>
 
   </body>
