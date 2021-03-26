@@ -46,7 +46,7 @@ type="text" name="text" id="ikasyotto" placeholder="Ikä"><br><br>
     <input type="radio" id="kiinnostus" name="kiinnostus" value="3">
         <label for="kiinnostus3">Molemmat</label><br>
 </div>
-<div class="valinta" <!-- Tarkistatko Toni nämä vielä, kun tiedän että illalla tuut kuitenkin koodaa :D -->
+<div class="valinta">
 <p>Mieluisat liikuntalajit (voit valita useamman vaihtoehdon):</p>
   <input type="checkbox" id="laji1" name="laji1" value="Juoksu">
     <label for="Juoksu">Juoksu</label><br>
@@ -63,20 +63,21 @@ type="text" name="text" id="ikasyotto" placeholder="Ikä"><br><br>
   <input type="checkbox" id="laji7" name="laji7" value="Uinti">
     <label for="Uinti">Uinti</label>
 </div>
-
+<div class="pudotus">
 <p>Onko sinulla sairauksia/muuta estettä liikkumiselle?</p>
-<!--Tuliko tähän div?-->
     <select id="este" name="este">
       <option value="">Valitse...</option>
      <option value="kyllä">Sairaus, joka estää liikkumisen</option>
      <option value="vamma">Vamma, joka estää liikkumisen</option>
      <option value="ei">Ei estettä liikkumiselle</option>
     </select>
+  </div>
   <br>
   <br>
+  <div class="laatikko">
   <p>Mitä tavoitteita haluat asettaa</p>
-    <!--Entäs tähän?? div... -->
       <textarea placeholder="Kirjoita tähän.."></textarea>
+      </div>
 <br>
 <br>
 <button type="button" name="button" onclick="tarkista()">Lähetä</button>
