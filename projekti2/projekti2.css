@@ -1,0 +1,25 @@
+h1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 275%;
+   
+}
+
+p {
+    font-family: 'Amatic SC', cursive;
+    font-size: 175%;
+}
+
+#eka {
+    text-align: center;
+
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    
+}
+body {
+    background-color:rgb(241, 179, 233);
+}
