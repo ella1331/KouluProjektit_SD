@@ -15,16 +15,20 @@ function arvaa(arpa){
         alert("Onnea sulle, oikeempa valitsit!"
                 + " Arvauskertoja: " + kerrat + " Peli alkaa alusta!");
                 location.reload(); //Sivuston automaattinen päivitys (Flex)
+                
+                
     }
     else if(x > arvattava) 
     {    
         kerrat++;
         alert("On se kyl vähä pienempi");
+        arpa.style.display = "none"; //Lisätty arvatun numeron poisto
     }
     else if (x < arvattava)
     {
         kerrat++;
         alert("Kokkeile isompaa hyvä immeinen");
+        arpa.style.display = "none"; //Lisätty arvatun numeron poisto
     }
     
 }
