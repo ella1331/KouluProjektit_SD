@@ -3,17 +3,25 @@ table{
   height: 600px;
   border: 2px solid black;
   border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+
+  
 }
 td{
   background-color: #7aafe4;
   text-align: center;
   width: 100px;
   height: 100px;
+  
 }
 button{
   width: 65px;
   height: 65px;
-  font-size: large;
+  font-size: 30px;
   border-radius: 35px;
   border: 1px solid black;
+  font-family: 'Gloria Hallelujah', cursive;
 }
+
+
