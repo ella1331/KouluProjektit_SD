@@ -1,0 +1,86 @@
+body {
+    background-color: rgb(235, 232, 204);
+}
+.laatikko {
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 800px;
+    margin:0 auto;
+}
+header {
+    font-size: 40px;
+    text-align: center;
+}
+
+ul.a {
+    list-style-type: circle;
+    font-size: 30px;
+    line-height: 2;
+    margin-left: 25px;
+}
+
+textarea {
+    width: 500px;
+    height: 150px;
+    font-size: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-left: 34px;
+    
+}
+
+#nappi {
+    font-size: 20px;
+    background-color: rgb(190, 214, 224);
+    font-family: 'Noto Sans JP', sans-serif;
+    color: black;
+    margin-left: 34px;
+    }
+
+#nappi:hover {
+    
+    background-color:rgb(131, 191, 211);
+    transition: all 0.75s ease;
+	-webkit-transition: all 0.75s ease;
+	-moz-transition: all 0.75s ease;
+	-ms-transition: all 0.75s ease;
+	-o-transition: all 0.75 ease;
+}
+
+ul.b li {
+    
+    height: 20px;
+    width: 700px;
+    padding: 10px 20px;
+    border: 1px solid;
+    list-style-type: decimal;
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+    border-radius: 5px;
+    background:rgb(212, 234, 241);
+    transition: all 0.75s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5 ease;
+}
+
+ul.b li:hover {
+
+    background:rgb(176, 222, 236);
+}
+
+li > button {
+    float:right;
+    border: none;
+    background: none;
+}
+
+.valmis {
+    background-color:rgb(160, 240, 160) !important; /*!important ylikirjoittaa kaikki muut kyseistä elementtiä koskevat tyylimääritykset*/
+}
+
+/*.delete {
+	display: none;
+} */ /* Käytettiin suoraan javascriptissä */
+
+
