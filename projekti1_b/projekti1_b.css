@@ -1,23 +1,20 @@
-#kyselylomake
-{
-    border-style: solid;
-    float:left;
-    padding: 10%;
-    margin-left: 1%;
-    background-color: rgb(168, 217, 248);
-    font-family: 'Indie Flower', cursive;
-    font-size: 22px;
+#kyselylomake {
+  border-style: solid;
+  float: left;
+  padding: 10%;
+  margin-left: 1%;
+  background-color: rgb(168, 217, 248);
+  font-family: "Indie Flower", cursive;
+  font-size: 22px;
 }
 
 textarea {
-    width: 450px;
-    height: 150px;
-  }
+  width: 450px;
+  height: 150px;
+}
 
-button {
-      background-color:rgb(125, 202, 228);
-      font-family: 'Indie Flower', cursive;
-      font-size:20px;
-  }
-
-  
+#painike {
+  background-color: rgb(125, 202, 228);
+  font-family: "Indie Flower", cursive;
+  font-size: 20px;
+}

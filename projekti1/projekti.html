@@ -1,51 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="projekti.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="projekti.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap"
+      rel="stylesheet"
+    />
     <script src="projekti.js"></script>
     <title>Asiakaspalvelu chat</title>
-</head>
-<body>
-<div class="ruutu"> <!--Jos haluat blankon sivun, paina refresh tai F5-->
-<h1>Asiakaspalvelu chat</h1>
-<br>
-<br>
-<form>
-    <input style="border-style:solid;border-radius: 5%; width: 250px; height: 20px;" type="text" name="text" id="nimi" placeholder="Nimi"><br><br>
-    <input style="border-style:solid;border-radius: 5%; width: 250px; height: 20px;" type="text" name="text" id="email" placeholder="Sähköposti"><br>
-</form>
+  </head>
+  <body>
+    <div class="ruutu">
+      <!--Jos haluat blankon sivun, paina refresh tai F5-->
+      <h1>Asiakaspalvelu chat</h1>
+      <br />
+      <br />
+      <form>
+        <input
+          style="
+            border-style: solid;
+            border-radius: 5%;
+            width: 250px;
+            height: 20px;
+          "
+          type="text"
+          name="text"
+          id="nimi"
+          placeholder="Nimi"
+        /><br /><br />
+        <input
+          style="
+            border-style: solid;
+            border-radius: 5%;
+            width: 250px;
+            height: 20px;
+          "
+          type="text"
+          name="text"
+          id="email"
+          placeholder="Sähköposti"
+        /><br />
+      </form>
 
-<p>Palvelunkieli</p> <!--Suomi ainoa vaihtoehto, ei taipunu devaajien kielitaito muuhun-->
-<select name="kieli" id="kieli">
-    <option value="" disabled selected>Valitse kieli</option>
-    <option value="suomi">Suomi</option>
-    <option value="ruotsi">Ruotsi</option>
-    <option value="englanti">Englanti</option>
-</select>
-<br><br><br>
-<p>Valitse seuraavista palveluista:</p>
+      <p>Palvelunkieli</p>
+      <!--Suomi ainoa vaihtoehto, ei taipunu devaajien kielitaito muuhun-->
+      <select name="kieli" id="kieli">
+        <option value="" disabled selected>Valitse kieli</option>
+        <option value="suomi">Suomi</option>
+        <option value="ruotsi">Ruotsi</option>
+        <option value="englanti">Englanti</option>
+      </select>
+      <br /><br /><br />
 
-<input type="radio" id="palvelu" name="palvelu" value="1">
-    <label for="palvelu1">Päivittäiset raha-asiat</label><br>
-<input type="radio" id="palvelu" name="palvelu" value="2">
-    <label for="palvelu2">Säästäminen ja sijoittaminen</label><br>
-<input type="radio" id="palvelu" name="palvelu" value="3">
-    <label for="palvelu3">Lainat</label><br>
-<input type="radio" id="palvelu" name="palvelu" value="4">
-    <label for="palvelu4">Vakuutusasiat</label><br>
-<input type="radio" id="palvelu" name="palvelu" value="5">
-    <label for="palvelu5">Edut ja muut</label><br>
+      <p>Valitse seuraavista palveluista:</p>
 
-<p>Kiitos, kertoisitko tarkemmin:</p>
-<textarea id="alue" placeholder="Kirjoita tähän..."></textarea><br><br><br>
+      <input type="radio" id="palvelu" name="palvelua" value="true" />
+      <!--Muutin nameiksi näihin palvelua/Toni/12.4-->
+      <label for="palvelu1">Päivittäiset raha-asiat</label><br />
+      <input type="radio" id="palvelu" name="palvelua" value="true" />
+      <label for="palvelu2">Säästäminen ja sijoittaminen</label><br />
+      <input type="radio" id="palvelu" name="palvelua" value="true" />
+      <label for="palvelu3">Lainat</label><br />
+      <input type="radio" id="palvelu" name="palvelua" value="true" />
+      <label for="palvelu4">Vakuutusasiat</label><br />
+      <input type="radio" id="palvelu" name="palvelua" value="true" />
+      <label for="palvelu5">Edut ja muut</label><br />
 
-<button style="background-color: rgb(248, 204, 186); font-family: 'Nunito', sans-serif; font-weight: bold;" type="button" name="button" onclick="tarkista()">Avaa chatti</button>
-</div>
-</body>
+      <p>Kiitos, kertoisitko tarkemmin:</p>
+      <textarea id="alue" placeholder="Kirjoita tähän..."></textarea
+      ><br /><br /><br />
+
+      <button
+        style="
+          background-color: rgb(248, 204, 186);
+          font-family: 'Nunito', sans-serif;
+          font-weight: bold;
+        "
+        type="button"
+        name="button"
+        onclick="tarkista()"
+      >
+        Avaa chatti
+      </button>
+    </div>
+  </body>
 </html>
 
 <!--Copyright ELina, Toni, Riku, 2021-->
