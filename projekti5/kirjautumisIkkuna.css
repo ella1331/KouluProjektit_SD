@@ -10,7 +10,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: 'Pangolin', cursive;
+  font-family: "Pangolin", cursive;
   font-size: 20px;
 }
 
@@ -19,14 +19,14 @@
   color: black;
 }
 
-#kirjautumisIkkuna
-{
+#kirjautumisIkkuna {
   border-style: solid;
   padding: 20px;
   margin: auto;
   float: none;
   margin-top: 20px;
   background-color: #4290c1;
-  font-family: 'Pangolin', cursive;
+  font-family: "Pangolin", cursive;
   font-size: 22px;
+  height: 85vh;
 }

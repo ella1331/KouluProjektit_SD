@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html lang="fi" dir="ltr">
   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
 
-      <link rel="stylesheet" href="kotisivu.css">
-      <title>Kotisivu</title>
-    </head>
-<body>
-
-<header>Muistipeli</header>
-<!-- en ole ihan varma tästä navibarista tartteeko sitä
+    <link rel="stylesheet" href="kotisivu.css" />
+    <title>Kotisivu</title>
+  </head>
+  <body>
+    <header>Muistipeli</header>
+    <!-- en ole ihan varma tästä navibarista tartteeko sitä
 tähän sivulle? Mitä mieltä olet? Koska tämä olisi hieno
 jos tässä olisi ainoastaan "Astu sisään"-button.-->
-<div class="topnav">
+
+    <!--Toni jatkaa: Joo, on kyllä parempi ilman. Ääni tälle! ps. mulla on käytössä sellainen plugi kuin prettier, järjestelee
+    ja sisentelee koodia, niin sano jos et tykkää sen tyylistä järjestää koodia, niin otan pois käytöstä-->
+
+    <!--<div class="topnav">
   <a href="" target="_blank">Luo tili</a>
   <a href="" style="float:right;" target="_blank">Kirjaudu</a>
-</div>
-  <div class="card">
-      <p>Tervetuloa pelaamaan muistipeliä. Muistipelejä löytyy 3 erilaista
-      versiota. Voit valita mieluisen pelin.</p>
-      <p> Peli pisteytetään käytetyn ajan ja
-      arvauskertojen perusteella. Mitä vähemmän aikaa ja arvauskertoja käytät, sitä
-      korkeammalla olet Mestareiden Liigan taulukossa.</p>
+</div> -->
+
+    <div class="card">
+      <p>
+        Tervetuloa pelaamaan muistipeliä. Muistipelejä löytyy 3 erilaista
+        versiota. Voit valita mieluisen pelin.
+      </p>
+      <p>
+        Peli pisteytetään käytetyn ajan ja arvauskertojen perusteella. Mitä
+        vähemmän aikaa ja arvauskertoja käytät, sitä korkeammalla olet
+        Mestareiden Liigan taulukossa.
+      </p>
       <p>Astu sisään, ja pääset kirjautumaan tai luomaan oman tunnuksen.</p>
-      <button id="nappi">Astu sisään</button>
+      <button
+        id="nappi"
+        onclick="location.href='kirjautumisIkkuna.html'"
+        type="button"
+      >
+        Astu sisään
+      </button>
 
       <p>PELIONNEA</p>
-  <!-- Ehdottomasti tähän joku hieno giffi, vai mitä?? :) -->
+      <img src="images/lucky.gif" alt="lucky" height="20%" width="20%" />
+
+      <!-- Ehdottomasti tähän joku hieno giffi, vai mitä?? :) -->
+      <!-- Löysin nyt tuollasein, saa vaihtaa :D T.Toni-->
     </div>
   </body>
-  </html>
+</html>
 <!-- Värejä voidaan vaihtaa, on aika "tyttömäiset" värit :D-->
+<!--Toni vastaa: Sinänsä ei mitään pahaa väreissä vaikka olisikin. Mun silmään sopii hyvin ja muutenkin olen enemmän 
+backendin puolen ihminen, joten tyylittely ei ole minun vahvin osaaminen :D -->
