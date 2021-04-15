@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="kirjautumisIkkuna.css">
+      <title>Kirjautumisikkuna</title>
+    </head>
+<body>
+  <div class="topnav">
+    <a href="" target="_blank">Kotisivu</a>
+    <a href="" target="_blank">Luo tili</a>
+    <a href="" style="float:right;" target="_blank">Kirjaudu ulos</a>
+  </div>
+
+
+<!-- Tämä jäi nyt kesken. En saanut tuota formia ihan koko
+  sivun mittaiseksi. Tai siis se saisi mun mielestä mennä
+  ihan tonne alas asti. Mitä olet mieltä?-->
+  <form id="kirjautumisIkkuna">
+    <p>Kirjaudu sisään omilla tunnuksilla tai luo uudet tunnukset.</p>
+  <label for="nimi">Käyttäjätunnus</label><br>
+  <input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
+  type="text" name="text" id="käyttis" placeholder="Käyttäjätunnus"><br><br>
+  <label for="salaSana">Salasana</label><br>
+  <input style="border-style:solid;border-radius: 5%; width: 350px; height: 20px;"
+  type="text" name="text" id="salis" placeholder="Salasana"><br><br>
+
+<button id="laheta" type="button" name="button" onclick="tarkistus()">Kirjaudu</button>
+
+
+<!--En ehtinyt myöskään värejä laittaa kohdilleen :D -->
+
+    </form>
+
+  </body>
+</html>
