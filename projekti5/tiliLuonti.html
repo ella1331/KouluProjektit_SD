@@ -9,26 +9,36 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="kirjautumisIkkuna.css" />
-    <title>Kirjautumisikkuna</title>
+    <link rel="stylesheet" href="tiliLuonti.css" />
+    <script src="tiliLuonti.js"></script>
+    <title>Luo tili</title>
   </head>
   <body>
     <div class="topnav">
       <a href="kotisivu.html">Kotisivu</a>
-      <!--Otin blankit pois, niin ei luo turhaan uutta välilehteä/Toni 15.4-->
-      <a href="tiliLuonti.html">Luo tili</a>
       <a href="kirjautumisIkkuna.html" style="float: right">Kirjaudu sisään</a>
     </div>
 
-    <!-- Tämä jäi nyt kesken. En saanut tuota formia ihan koko
-  sivun mittaiseksi. Tai siis se saisi mun mielestä mennä
-  ihan tonne alas asti. Mitä olet mieltä?
+    <form id="tilinluonti" action="/action_page.php">
+      <p>Luo tunnukset.</p>
+      <br /><br />
+      <img
+        id="esikatselu"
+        width="100vh"
+        height="100vh"
+        style="margin-left: 10vh; background-color: rgb(115, 180, 238)"
+      /><br />
+      <!--Näyttää esikatseluna valitun kuvan/Toni 15.4-->
+      <label for="img">Valitse kuva avatariisi:</label>
+      <input
+        type="file"
+        id="img"
+        name="img"
+        accept="image/*"
+        onchange="lataaKuva(event)"
+      /><br /><br />
+      <!--Voi valita kuvan koneeltaan/Toni 15.4-->
 
-Toni jatkaa: Joo, ihan hyvä ajatus, laitoin css:ään height:85vh, joka on siis viewportheight. Eli riippuen näytöstä 85%, 85%
-sen takia, että navbar vie lopun tilan. 100% vei jo vähän enemmän kuin ruutu on. Mitä mieltä olet, jos keskittää
-kirjautumisen keskelle?-->
-    <form id="kirjautumisIkkuna" onsubmit="tarkistus()">
-      <p>Kirjaudu sisään omilla tunnuksilla tai luo uudet tunnukset.</p>
       <label for="nimi">Käyttäjätunnus</label><br />
       <input
         style="
@@ -41,6 +51,7 @@ kirjautumisen keskelle?-->
         name="text"
         id="käyttis"
         placeholder="Käyttäjätunnus"
+        required
       /><br /><br />
       <label for="salaSana">Salasana</label><br />
       <input
@@ -54,18 +65,11 @@ kirjautumisen keskelle?-->
         name="text"
         id="salis"
         placeholder="Salasana"
+        required
+        minlength="15"
       /><br /><br />
 
-      <button id="kirjaudu" type="submit" name="submit">
-        <!--Muutin id:ksi kirjaudu, ja tyypiksi submit. /Toni 15.4-->
-        Kirjaudu
-      </button>
-
-      <button id="luo" type="button" onclick="location.href='tiliLuonti.html'">
-        Luo tili
-      </button>
-
-      <!--En ehtinyt myöskään värejä laittaa kohdilleen :D -->
+      <button id="luonti" type="submit" name="submit">Luo tili</button>
     </form>
   </body>
 </html>

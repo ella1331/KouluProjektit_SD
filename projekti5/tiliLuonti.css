@@ -1,0 +1,32 @@
+.topnav {
+  overflow: hidden;
+  background-color: #3d4798;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Pangolin", cursive;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color: #7aa2f2;
+  color: black;
+}
+
+#tilinluonti {
+  border-style: solid;
+  padding: 20px;
+  margin: auto;
+  float: none;
+  margin-top: 20px;
+  background-color: #4290c1;
+  font-family: "Pangolin", cursive;
+  font-size: 22px;
+  height: 85vh;
+}
