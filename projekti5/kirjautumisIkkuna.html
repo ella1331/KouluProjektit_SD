@@ -29,41 +29,20 @@ sen takia, että navbar vie lopun tilan. 100% vei jo vähän enemmän kuin ruutu
 kirjautumisen keskelle?-->
     <form id="kirjautumisIkkuna" onsubmit="tarkistus()">
       <p>Kirjaudu sisään omilla tunnuksilla tai luo uudet tunnukset.</p>
+
       <label for="nimi">Käyttäjätunnus</label><br />
-      <input
-        style="
-          border-style: solid;
-          border-radius: 5%;
-          width: 350px;
-          height: 20px;
-        "
-        type="text"
-        name="text"
-        id="käyttis"
-        placeholder="Käyttäjätunnus"
-      /><br /><br />
+      <input style="border-style: solid; border-radius: 5%; width: 350px; height: 20px;" type="text" name="text" id="käyttis" placeholder="Käyttäjätunnus">
+      <br /><br />
+
       <label for="salaSana">Salasana</label><br />
-      <input
-        style="
-          border-style: solid;
-          border-radius: 5%;
-          width: 350px;
-          height: 20px;
-        "
-        type="text"
-        name="text"
-        id="salis"
-        placeholder="Salasana"
-      /><br /><br />
+      <input style="border-style: solid; border-radius: 5%; width: 350px; height: 20px;" type="text" name="text" id="salis" placeholder="Salasana">
+      <br /><br />
 
-      <button id="kirjaudu" type="submit" style="font-family: 'Pangolin', cursive; height: 30px; width: 70px;" name="submit">
+      <button id="kirjaudu" type="submit" style="font-family: 'Pangolin', cursive; height: 30px; width: 70px" name="submit">Kirjaudu</button>
         <!--Muutin id:ksi kirjaudu, ja tyypiksi submit. /Toni 15.4-->
-        Kirjaudu
-      </button>
+        
 
-      <button id="luo" type="button" style="font-family: 'Pangolin', cursive; height: 30px; width: 70px;" onclick="location.href='tiliLuonti.html'">
-        Luo tili
-      </button>
+      <button id="luo" type="button" style="font-family: 'Pangolin', cursive; height: 30px; width: 70px" onclick="location.href='tiliLuonti.html'"> Luo tili</button>
 
       <!--En ehtinyt myöskään värejä laittaa kohdilleen :D -->
     </form>

@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="tiliLuonti.css" />
     <script src="tiliLuonti.js"></script>
@@ -19,54 +22,19 @@
     <form id="tilinluonti" action="/action_page.php">
       <p>Luo tunnukset</p>
       <br /><br />
-      <img
-        id="esikatselu"
-        width="100vh"
-        height="100vh"
-        style="margin-left: 10vh; background-color: #dae7f5"
-      /><br />
+      <img id="esikatselu" width="100vh" height="100vh" style="margin-left: 10vh; background-color: #dae7f5"><br />
       <!--Näyttää esikatseluna valitun kuvan/Toni 15.4-->
       <label for="img">Valitse kuva avatariisi:</label>
-      <input
-        type="file"
-        id="img"
-        name="img"
-        accept="image/*"
-        onchange="lataaKuva(event)"
-      /><br /><br />
+      <input type="file" id="img" name="img" accept="image/*" onchange="lataaKuva(event)"><br /><br />
       <!--Voi valita kuvan koneeltaan/Toni 15.4-->
 
       <label for="nimi">Käyttäjätunnus</label><br />
-      <input
-        style="
-          border-style: solid;
-          border-radius: 5%;
-          width: 350px;
-          height: 20px;
-        "
-        type="text"
-        name="text"
-        id="käyttis"
-        placeholder="Käyttäjätunnus"
-        required
-      /><br /><br />
+      <input style="border-style: solid; border-radius: 5%; width: 350px; height: 20px;" type="text" name="text" id="käyttis" placeholder="Käyttäjätunnus" required><br /><br />
       <label for="salaSana">Salasana</label><br />
-      <input
-        style="
-          border-style: solid;
-          border-radius: 5%;
-          width: 350px;
-          height: 20px;
-        "
-        type="text"
-        name="text"
-        id="salis"
-        placeholder="Salasana"
-        required
-        minlength="15"
-      /><br /><br />
+      <input style="border-style: solid; border-radius: 5%; width: 350px; height: 20px;" type="text" name="text" id="salis" placeholder="Salasana" required minlength="15"><br /><br />
 
-      <button id="luonti" type="submit" style="background: white"; name="submit">Luo tili</button>
+      <button id="luonti" type="submit" style="background: white" name="submit">Luo tili</button>
+      
     </form>
   </body>
 </html>
