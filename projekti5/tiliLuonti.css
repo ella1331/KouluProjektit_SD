@@ -1,6 +1,6 @@
 .topnav {
   overflow: hidden;
-  background-color: #3d4798;
+  background-color: #ecae96;
 }
 
 .topnav a {
@@ -10,12 +10,12 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: "Pangolin", cursive;
+  font-family: 'Coming Soon', cursive;
   font-size: 20px;
 }
 
 .topnav a:hover {
-  background-color: #7aa2f2;
+  background-color: #eee3e3;
   color: black;
 }
 
@@ -25,8 +25,8 @@
   margin: auto;
   float: none;
   margin-top: 20px;
-  background-color: #4290c1;
-  font-family: "Pangolin", cursive;
+  background-color: #e2e1e1;
+  font-family: 'Coming Soon', cursive;
   font-size: 22px;
   height: 85vh;
 }
