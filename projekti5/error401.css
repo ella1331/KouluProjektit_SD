@@ -1,0 +1,14 @@
+body
+{
+    background-image: url("images/error401.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+#teksti{
+    text-align: center;
+    font-family: 'Walter Turncoat', cursive;
+    margin-top: 6%;
+        
+}

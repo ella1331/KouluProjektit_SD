@@ -1,6 +1,7 @@
 .topnav {
   overflow: hidden;
   background-color: #3d4798;
+  position: sticky;
 }
 
 .topnav a {
@@ -30,4 +31,13 @@
   font-family: "Pangolin", cursive;
   font-size: 22px;
   height: 85vh;
+}
+
+header {
+  font-size: 70px;
+  text-align: center;
+  padding: 30px;
+  text-align: center;
+  background: #d0c5e3;
+  font-family: 'Shadows Into Light Two', cursive;
 }
