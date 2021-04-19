@@ -4,7 +4,7 @@ header {
   padding: 30px;
   text-align: center;
   background: #d0c5e3;
-  font-family: 'Shadows Into Light Two', cursive;
+  font-family: 'Architects Daughter', cursive;
 }
 .topnav {
   overflow: hidden;
@@ -19,7 +19,7 @@ header {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: "Pangolin", cursive;
+  font-family: 'Architects Daughter', cursive;
   font-size: 20px;
 }
 
@@ -47,21 +47,21 @@ body {
 
 body {
 	background: #e7d5d5;
-	font-family: 'Pangolin', cursive;
-	font-size: 16px;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 25px;
 }
 
-.container {
+.laatikko {  /*tämän muutin */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
   margin-top: 5%;
 }
-  
+
 
 h1 {
-	font-family: 'Pangolin', cursive;
+	font-family: 'Architects Daughter', cursive;
 }
 
 
@@ -144,24 +144,24 @@ h1 {
  */
 
 
-.score-panel {
+.pistePaneeli {
 	text-align: left;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
-.score-panel .stars {
+.pistePaneeli .stars {
 	margin: 0;
 	padding: 0;
 	display: inline-block;
 	margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.pistePaneeli .stars li {
 	list-style: none;
 	display: inline-block;
 }
 
-.score-panel .restart {
+.pistePaneeli .restart {
 	float: right;
 	cursor: pointer;
 }
@@ -197,7 +197,7 @@ h1 {
 	visibility: visible;
 	opacity: 1;
 }
-  
+
 .popup {
 	margin: 70px auto;
 	padding: 20px;
@@ -206,13 +206,13 @@ h1 {
 	width: 85%;
 	position: relative;
 	transition: all 5s ease-in-out;
-	font-family: 'Pangolin', cursive;
+	font-family: 'Architects Daughter', cursive;
 }
-  
+
 .popup h2 {
 	margin-top: 0;
 	color: #333;
-	font-family: Tahoma, Arial, sans-serif;
+	font-family: 'Architects Daughter', cursive;
 }
 
 .popup .close {
@@ -253,7 +253,7 @@ h1 {
 	display: block;
 	margin: 0 auto;
 	width: 50%;
-	font-family: 'Pangolin', cursive;
+	font-family: 'Architects Daughter', cursive;
 	color: #ffffff;
 	border-radius: 5px;
 }
@@ -350,7 +350,7 @@ h1 {
 ****************/
 
 @media (min-width: 768px) {
-	.container {
+	.laatikko {
 		font-size: 22px;
 	}
 

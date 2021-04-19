@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--käyttää uusinta päivitystä-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pelisivu.css">
-    
+
     <title>Muistipeli</title>
 </head>
 
@@ -13,17 +15,15 @@
     <header>Muistipeli</header>
     <div class="topnav">
       <a href="kotisivu.html">Kotisivu</a>
-     
+
       <a href="mestarienLiiga.html">Mestarien liiga</a>
       <a href="kirjautumisIkkuna.html" style="float: right">Kirjaudu ulos</a>
     </div>
-    
-      <div class="container">
-        
 
-        <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
+      <div class="laatikko"> <!--muutin tämän html ja css-->
+        <section class="pistePaneeli"> <!--muutin tämän html ja css-->
+        	<ul class="stars"> <!--tämän muuttaminen html ja css vaikutti pisteiden näyttämiseen. Eli se pitää muuttaa myös JS puolelle-->
+        		<li><i class="fa fa-star"></i></li> <!-- fa fa-star = star ikoni-->
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         	</ul>
@@ -111,4 +111,3 @@
     <script src="pelisivu.js"></script>
 </body>
 </html>
-

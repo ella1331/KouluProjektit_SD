@@ -50,9 +50,9 @@ function shuffle(array) {
 document.body.onload = startGame();
 
 
-// @description function to start a new play 
+// @description function to start a new play
 function startGame(){
- 
+
     // empty the openCards array
     openedCards = [];
 
@@ -76,7 +76,7 @@ function startGame(){
     }
     //reset timer
     second = 0;
-    minute = 0; 
+    minute = 0;
     hour = 0;
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 minuuttia 0 sekuntia";
@@ -157,7 +157,7 @@ function moveCounter(){
     //start timer on first click
     if(moves == 1){
         second = 0;
-        minute = 0; 
+        minute = 0;
         hour = 0;
         startTimer();
     }
@@ -185,7 +185,7 @@ var timer = document.querySelector(".timer");
 var interval;
 function startTimer(){
     interval = setInterval(function(){
-        timer.innerHTML = minute+"minuuttia "+second+"sekuntia";
+        timer.innerHTML = minute+" minuuttia "+second+" sekuntia ";
         second++;
         if(second == 60){
             minute++;
@@ -231,7 +231,7 @@ function closeModal(){
 }
 
 
-// @desciption for user to play Again 
+// @desciption for user to play Again
 function playAgain(){
     modal.classList.remove("show");
     startGame();
