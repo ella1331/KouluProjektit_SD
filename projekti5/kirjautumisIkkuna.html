@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="kirjautumisIkkuna.css" />
+    <script src="kirjautuminen.js"></script>
     <title>Kirjautumisikkuna</title>
   </head>
   <body>
@@ -25,7 +26,7 @@
 Toni jatkaa: Joo, ihan hyvä ajatus, laitoin css:ään height:85vh, joka on siis viewportheight. Eli riippuen näytöstä 85%, 85%
 sen takia, että navbar vie lopun tilan. 100% vei jo vähän enemmän kuin ruutu on. Mitä mieltä olet, jos keskittää
 kirjautumisen keskelle?-->
-    <form id="kirjautumisIkkuna" onsubmit="tarkistus()">
+    <form id="kirjautumisIkkuna">
       <p>Kirjaudu sisään omilla tunnuksilla tai luo uudet tunnukset.</p>
 
       <label for="nimi">Käyttäjätunnus</label><br />
@@ -33,10 +34,10 @@ kirjautumisen keskelle?-->
       <br /><br />
 
       <label for="salaSana">Salasana</label><br />
-      <input style="border-style: solid; border-radius: 5%; width: 350px; height: 20px;" type="text" name="text" id="salis" placeholder="Salasana">
+      <input style="border-style: solid; border-radius: 5%; width: 350px; height: 20px;" type="text" name="text" id="salis" placeholder="Salasana (15 merkkiä) ">
       <br /><br />
 
-      <button id="kirjaudu" type="submit" style="font-family: 'Pangolin', cursive; height: 30px; width: 70px" name="submit">Kirjaudu</button>
+      <button id="kirjaudu" type="button" style="font-family: 'Pangolin', cursive; height: 30px; width: 70px" onclick="tarkistus()">Kirjaudu</button>
         <!--Muutin id:ksi kirjaudu, ja tyypiksi submit. /Toni 15.4-->
         
 
