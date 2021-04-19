@@ -1,36 +1,35 @@
-// cards array holds all cards
+// korttitaulukko sisältää kaikki kortit
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 
-// deck of all cards in game
+// korttipakka
 const deck = document.getElementById("card-deck");
 
-// declaring move variable
+// muuttuja klikkausille eli siirroille
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-// declare variables for star icons
+// muuttuja tähdille, tähti-ikoni
 const stars = document.querySelectorAll(".fa-star");
 
-// declaring variable of matchedCards
+// muuttuja korttimatcheille, vähä niinkuin tinderissä ikään
 let matchedCard = document.getElementsByClassName("match");
 
- // stars list
- let starsList = document.querySelectorAll(".stars li");
+ // tähdet lista
+ let starsList = document.querySelectorAll(".tähdet li"); //Tähän muutettu star => tähdet/Toni 19.4
 
- // close icon in modal
+ // poistuiconi popupissa (x)
  let closeicon = document.querySelector(".close");
 
- // declare modal
+ // popupille muuttuja
  let modal = document.getElementById("popup1")
 
- // array for opened cards
+ // taulukko avatuillekorteille
 var openedCards = [];
 
 
-// @description shuffles cards
-// @param {array}
-// @returns shuffledarray
+// pakan seikoitus whileloopilla
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -46,19 +45,19 @@ function shuffle(array) {
 };
 
 
-// @description shuffles cards when page is refreshed / loads
+// sivuston avautuessa/päivitettäessä sekoittaa pakan uusiksi
 document.body.onload = startGame();
 
 
-// @description function to start a new play
+// funktio uuteen peliin
 function startGame(){
 
-    // empty the openCards array
+    // avatutkortit taulukko tyhjäksi
     openedCards = [];
 
-    // shuffle deck
+    // sekoita pakka
     cards = shuffle(cards);
-    // remove all exisiting classes from each card
+    // poistaa kaikki classi määritykset korteista, eli onko avattu match jne.
     for (var i = 0; i < cards.length; i++){
         deck.innerHTML = "";
         [].forEach.call(cards, function(item) {
@@ -66,15 +65,15 @@ function startGame(){
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
     }
-    // reset moves
+    // resettaa siirrot
     moves = 0;
     counter.innerHTML = moves;
-    // reset rating
+    // resettaa tähdet
     for (var i= 0; i < stars.length; i++){
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
     }
-    //reset timer
+    //resettaa kellon
     second = 0;
     minute = 0;
     hour = 0;
@@ -84,7 +83,7 @@ function startGame(){
 }
 
 
-// @description toggles open and show class to display cards
+// määrittää allaolevat classit päälle, kun ylhäällä ne poistettiin peliä alustettaessa
 var displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
@@ -92,7 +91,7 @@ var displayCard = function (){
 };
 
 
-// @description add opened cards to OpenedCards list and check if cards are match or not
+// lisää käännetyt kortit listaan ja katsoo onko kortit match vai ei
 function cardOpen() {
     openedCards.push(this);
     var len = openedCards.length;
@@ -107,7 +106,7 @@ function cardOpen() {
 };
 
 
-// @description when cards match
+// kun kortit on match, lisää molempiin kortteihin classit match ja disabled, toisaalta myös poistaa molemmista show open ja no-event
 function matched(){
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
@@ -117,7 +116,8 @@ function matched(){
 }
 
 
-// description when cards don't match
+// kun kortit ei ole match, lisää classi unmatched, 1,1sek päästä suorittaa funktion missä poistetaan classit show open no-event ja unmatched
+//tyhjentää avatutkortit (openedCards) taulukon taas 2 uutta kortia varten
 function unmatched(){
     openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
@@ -131,7 +131,7 @@ function unmatched(){
 }
 
 
-// @description disable cards temporarily
+// hetkellisesti lisää kortteihin classin disabled, eli niitä ei pysty valitsemaan. Tämä funktio kutsutaan ylläolevassa funktiossa juuri ennen kuin timeout 1,1sek on kulunut
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disabled');
@@ -139,7 +139,7 @@ function disable(){
 }
 
 
-// @description enable cards and disable matched cards
+// avaa kortit ja laittaa ne matchattuihin kortteihin ja disabloi ne
 function enable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove('disabled');
@@ -150,18 +150,18 @@ function enable(){
 }
 
 
-// @description count player's moves
+// laskee pelaajan siirrot
 function moveCounter(){
     moves++;
     counter.innerHTML = moves;
-    //start timer on first click
+    //kello lähtee käyntiin ekasta siirrosta
     if(moves == 1){
         second = 0;
         minute = 0;
         hour = 0;
         startTimer();
     }
-    // setting rates based on moves
+    // tähti arviot perustuu siirtojen määrään, mitkä ovat tässä määritetty
     if (moves > 8 && moves < 12){
         for( i= 0; i < 3; i++){
             if(i > 1){
@@ -179,7 +179,7 @@ function moveCounter(){
 }
 
 
-// @description game timer
+// pelikello
 var second = 0, minute = 0; hour = 0;
 var timer = document.querySelector(".timer");
 var interval;
@@ -199,30 +199,30 @@ function startTimer(){
 }
 
 
-// @description congratulations when all cards match, show modal and moves, time and rating
+//onnittelee kun kaikki kortit on arvattu, näyttää popupin ja siirrot, ajan ja ratingin eli mahdolliset tähdet
 function congratulations(){
     if (matchedCard.length == 16){
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
-        // show congratulations modal
+        // näyttää onnittelu popupin
         modal.classList.add("show");
 
-        // declare star rating variable
-        var starRating = document.querySelector(".stars").innerHTML;
+        // tähtiluokitus muuttuja
+        var starRating = document.querySelector(".tähdet").innerHTML; //Tähän muutettu star => tähdet/Toni 19.4
 
-        //showing move, rating, time on modal
+        //näyttää siirrot, tähdet eli rating, ajan popupissa
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
-        //closeicon on modal
+        //sulkee popupin
         closeModal();
     };
 }
 
 
-// @description close icon on modal
+//  sulkee popupin funktio
 function closeModal(){
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("show");
@@ -231,14 +231,14 @@ function closeModal(){
 }
 
 
-// @desciption for user to play Again
+// pelaa uudestaan funktio
 function playAgain(){
     modal.classList.remove("show");
     startGame();
 }
 
 
-// loop to add event listeners to each card
+// looppi joka lisää event listenerin joka korttiin
 for (var i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener("click", displayCard);

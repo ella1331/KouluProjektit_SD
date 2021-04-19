@@ -66,7 +66,7 @@ h1 {
 
 
 /*
- * Styles for the deck of cards
+ * Tyylit kortti "pakalle"
  */
 
 
@@ -87,7 +87,8 @@ h1 {
 	height: 3.7rem;
 	width: 3.7rem;
 	margin: 0.2rem 0.2rem;
-	background-image: url("tausta.png");
+	background-image: url("images/tausta.png"); /*Kokeilin laittaa tähän taustan kun puuttui kuva tästä, sano mitä pidät/Toni 19.4 */
+	background-size: cover; /*Kortintaustan koon määritys/Toni 19.4 */
 	color: #ffffff;
 	border-radius: 5px;
 	cursor: pointer;
@@ -140,7 +141,7 @@ h1 {
 
 
 /*
- * Styles for the Score Panel
+ * Tyylit pistetaulukolle
  */
 
 
@@ -148,15 +149,15 @@ h1 {
 	text-align: left;
 	margin-bottom: 15px;
 }
-
-.pistePaneeli .stars {
+/*Muutettu pistepaneeli.star => .tähdet/Toni 19.4 */
+.pistePaneeli .tähdet {
 	margin: 0;
 	padding: 0;
 	display: inline-block;
 	margin: 0 5px 0 0;
 }
-
-.pistePaneeli .stars li {
+/*Sama juttu tähän kuin ylläolevassa/Toni 19.4 */
+.pistePaneeli .tähdet li  {
 	list-style: none;
 	display: inline-block;
 }
@@ -177,7 +178,7 @@ h1 {
 
 
 /*
- * Styles for congratulations modal
+ * Tyylit onnittelu viestille
  */
 
 
@@ -258,7 +259,7 @@ h1 {
 	border-radius: 5px;
 }
 
-/* animations */
+/* animaatiot*/
 @keyframes flipInY {
 	from {
 		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
