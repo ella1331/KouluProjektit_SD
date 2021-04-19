@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pelisivu.css">
-    <script src="peli.js"></script>
+    
     <title>Muistipeli</title>
 </head>
 
-<body onload="luoPeli()">
+<body>
     <header>Muistipeli</header>
     <div class="topnav">
       <a href="kotisivu.html">Kotisivu</a>
@@ -18,7 +18,97 @@
       <a href="kirjautumisIkkuna.html" style="float: right">Kirjaudu ulos</a>
     </div>
     
-    <div id="peliAlue"></div>
-    
+      <div class="container">
+        
+
+        <section class="score-panel">
+        	<ul class="stars">
+        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star"></i></li>
+        	</ul>
+
+        	<span class="moves">0</span> siirtoa
+
+            <div class="timer">
+            </div>
+
+            <div class="restart" onclick=startGame()>
+        		<i class="fa fa-repeat"></i>
+        	</div>
+        </section>
+
+        <ul class="deck" id="card-deck">
+            <li class="card" type="jalkapallo">
+                <img src="images/kuva0.png" style="height:110px;">
+            </li>
+            <li class="card" type="lenkkarit">
+                <img src="images/kuva1.png" style="height:110px;">
+            </li>
+            <li class="card match" type="pyöräilijät">
+                <img src="images/kuva2.png" style="height:110px;">
+            </li>
+            <li class="card" type="mäkihyppy" >
+                <img src="images/kuva3.png" style="height:130px;">
+            </li>
+            <li class="card" type="mäkihyppy2">
+                <img src="images/kuva4.png" style="height:130px;">
+            </li>
+            <li class="card match" type="curling">
+                <img src="images/kuva5.png" style="height:150px;">
+            </li>
+            <li class="card" type="olympialaiset">
+                <img src="images/kuva6.png" style="height:90px; width:90px">
+            </li>
+            <li class="card" type="championsLeague">
+                <img src="images/kuva7.png" style="height:110px;">
+            </li>
+            <li class="card" type="jalkapallo">
+                <img src="images/kuva0.png" style="height:110px;">
+            </li>
+            <li class="card" type="lenkkarit">
+                <img src="images/kuva1.png" style="height:110px;">
+            </li>
+            <li class="card match" type="pyöräilijät">
+                <img src="images/kuva2.png" style="height:110px;">
+            </li>
+            <li class="card" type="mäkihyppy" >
+                <img src="images/kuva3.png" style="height:130px;">
+            </li>
+            <li class="card open show" type="mäkihyppy2">
+                <img src="images/kuva4.png" style="height:130px;">
+            </li>
+            <li class="card match" type="curling">
+                <img src="images/kuva5.png" style="height:150px;">
+            </li>
+            <li class="card" type="olympialaiset">
+                <img src="images/kuva6.png" style="height:90px; width: 90px;">
+            </li>
+            <li class="card" type="championsLeague">
+                <img src="images/kuva7.png" style="height:110px;">
+            </li>
+        </ul>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2> Onnittelut 🎉</h2>
+                <a class="close" href=# >×</a>
+                <div class="content-1">
+                    Läpäisit pelin!
+                </div>
+                <div class="content-2">
+                    <p>Teit <span id=finalMove> </span> siirtoa </p>
+                    <p>ajassa <span id=totalTime> </span> </p>
+                    <p>Suoritus:  <span id=starRating></span></p>
+                </div>
+                <button id="play-again"onclick="playAgain()">
+                    Pelaa uudelleen </a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="pelisivu.js"></script>
 </body>
 </html>
+

@@ -1,93 +1,247 @@
-//Korttien taustat
-var tausta4x4 = ["kuva0.png", "kuva1.png", "kuva2.png", "kuva3.png", "kuva4.png","kuva5.png", "kuva6.png", "kuva7.png", "kuva0.png", "kuva1.png", "kuva2.png", "kuva3.png", "kuva4.png","kuva5.png", "kuva6.png", "kuva7.png"];
-var tausta5x5 = [];
-var tausta6x6 = [];
+// cards array holds all cards
+let card = document.getElementsByClassName("card");
+let cards = [...card];
 
-//Muuttuja laskuria varten
-var stausta = 0;
-//Muuttuja ekana klikattua korttia varten, eli vähän niinkuin vanha (niinkuin minäkin)
-//Verrataan vanhaa ja uutta korttia keskenään
-var vanha = -1;
-//Muuttuja vanhan kortin alt-ominaisuutta varten
-var valtti;
+// deck of all cards in game
+const deck = document.getElementById("card-deck");
 
-//varsinainen taulukon luonti-funktio, jota kutsutaan HTML:n onload-komennolla
-function luoPeli() 
-{
-    sekoitetut = sekoita(tausta4x4); //sekoitetaan alkuperäinen taulukko
-    var peliAlue = document.getElementById("peliAlue"); //haetaan html-sivulta paikka mihin peli tulee "peliAlue"
-    var taulukko = document.createElement("table"); //luodaan peliä varten taulukkoelementti
-    var taulukonSolut = document.createElement("tbody"); //Luodaan peliä varten taulukon sisältöä varten elementti
+// declaring move variable
+let moves = 0;
+let counter = document.querySelector(".moves");
 
-    for(var i=0; i < 4; i++) //Luodaan taulukoon rivielementti
-    {
-        var rivi = document.createElement("tr");
+// declare variables for star icons
+const stars = document.querySelectorAll(".fa-star");
 
-        for(var j=0; j < 4; j++)
-        {
-            var solu = document.createElement("td"); //Luodaan sarake-elementti
-            var sisältö = document.createTextNode(""); //Luodaan elementti, johon kortti laitetaan
-            
-            
-            solu.setAttribute("alt", sekoitetut[(stausta)]); //Määritetään kortin alt-muuttuja, 0-15 eli jokaisella kortilla omansa
-            solu.setAttribute("id", "solu" + stausta); //Määritetään kortin id-muuttuja: "solu" + stausta. esim.solu12
-            solu.setAttribute("name", stausta); //Määritetään kortin name-muuttuja 0-15, jokaisella omansa
-            solu.setAttribute("onclick", "nayta("+stausta+");"); //Määritetään kortille onclick- toiminta, eli klikatessa kutsuu nayta funktiota
-            
-            
-            
-            stausta += 1; //Kasvatetaan laskuria yhdellä
+// declaring variable of matchedCards
+let matchedCard = document.getElementsByClassName("match");
 
-            solu.appendChild(sisältö); //syötetään ylläolevat  muutokset kortin-tietoihin
-            rivi.appendChild(solu); //syötetään ylläolevat muutokset rivin tietoihin 
+ // stars list
+ let starsList = document.querySelectorAll(".stars li");
 
+ // close icon in modal
+ let closeicon = document.querySelector(".close");
+
+ // declare modal
+ let modal = document.getElementById("popup1")
+
+ // array for opened cards
+var openedCards = [];
+
+
+// @description shuffles cards
+// @param {array}
+// @returns shuffledarray
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+};
+
+
+// @description shuffles cards when page is refreshed / loads
+document.body.onload = startGame();
+
+
+// @description function to start a new play 
+function startGame(){
+ 
+    // empty the openCards array
+    openedCards = [];
+
+    // shuffle deck
+    cards = shuffle(cards);
+    // remove all exisiting classes from each card
+    for (var i = 0; i < cards.length; i++){
+        deck.innerHTML = "";
+        [].forEach.call(cards, function(item) {
+            deck.appendChild(item);
+        });
+        cards[i].classList.remove("show", "open", "match", "disabled");
+    }
+    // reset moves
+    moves = 0;
+    counter.innerHTML = moves;
+    // reset rating
+    for (var i= 0; i < stars.length; i++){
+        stars[i].style.color = "#FFD700";
+        stars[i].style.visibility = "visible";
+    }
+    //reset timer
+    second = 0;
+    minute = 0; 
+    hour = 0;
+    var timer = document.querySelector(".timer");
+    timer.innerHTML = "0 minuuttia 0 sekuntia";
+    clearInterval(interval);
+}
+
+
+// @description toggles open and show class to display cards
+var displayCard = function (){
+    this.classList.toggle("open");
+    this.classList.toggle("show");
+    this.classList.toggle("disabled");
+};
+
+
+// @description add opened cards to OpenedCards list and check if cards are match or not
+function cardOpen() {
+    openedCards.push(this);
+    var len = openedCards.length;
+    if(len === 2){
+        moveCounter();
+        if(openedCards[0].type === openedCards[1].type){
+            matched();
+        } else {
+            unmatched();
         }
-        
-        taulukonSolut.appendChild(rivi); //syötetään rivit taulukon tbody-elementtiin
     }
-    taulukko.appendChild(taulukonSolut); //Syötetään lopuksi taulukon tbody-elementti taulukkoon
-    peliAlue.appendChild(taulukko); // Viimeiseksi syötetään taulukko sille varattuun paikkaan
-    taulukko.setAttribute("border", "2"); //Määrittää taulukolle CSS-arvo border jolle 2px
-    
+};
+
+
+// @description when cards match
+function matched(){
+    openedCards[0].classList.add("match", "disabled");
+    openedCards[1].classList.add("match", "disabled");
+    openedCards[0].classList.remove("show", "open", "no-event");
+    openedCards[1].classList.remove("show", "open", "no-event");
+    openedCards = [];
 }
 
-function sekoita(taulukko) //funktio joka sekoittaa pakan eli muuttujan tausta4x4
-{
-    taulukko.sort(function(a,b){return 0.5 - Math.random()});
-    return taulukko; //Syöttää sekoitetun pakan (eli siis taulukon) muuttujaan taulukko
+
+// description when cards don't match
+function unmatched(){
+    openedCards[0].classList.add("unmatched");
+    openedCards[1].classList.add("unmatched");
+    disable();
+    setTimeout(function(){
+        openedCards[0].classList.remove("show", "open", "no-event","unmatched");
+        openedCards[1].classList.remove("show", "open", "no-event","unmatched");
+        enable();
+        openedCards = [];
+    },1100);
 }
 
-function nayta(numero) //Funktio mikä kutsutaan kun korttia klikataan
-{
-    var tunnus = document.getElementById("solu" +numero); // haetaan napautettu kortti
-    var altti = tunnus.getAttribute("alt"); //haetaan napautetun kortin alt-muuttuja
-    if(vanha != -1) //tarkistetaan, ovatko kortit samat
-    {
-        valtti = vanha.getAttribute("alt"); //jos on, hakee vanhan kortin alt muuttujan
-    }
-    else{
-        valtti = vanha; //muussa tapauksessa syötetään siihen -1
-    }
-    tunnus.innerHTML = '<img src="images/'+altti+'">';
-    if(altti == valtti)
-    {
-        var altti = tunnus.getAttribute("alt");
 
-        vanha.innerHTML = '<img src="images/'+altti+'">';
+// @description disable cards temporarily
+function disable(){
+    Array.prototype.filter.call(cards, function(card){
+        card.classList.add('disabled');
+    });
+}
 
-        tunnus.innerHTML = '<img src="images/'+altti+'">';
+
+// @description enable cards and disable matched cards
+function enable(){
+    Array.prototype.filter.call(cards, function(card){
+        card.classList.remove('disabled');
+        for(var i = 0; i < matchedCard.length; i++){
+            matchedCard[i].classList.add("disabled");
+        }
+    });
+}
+
+
+// @description count player's moves
+function moveCounter(){
+    moves++;
+    counter.innerHTML = moves;
+    //start timer on first click
+    if(moves == 1){
+        second = 0;
+        minute = 0; 
+        hour = 0;
+        startTimer();
     }
-
-    else
-    {
-        vanha = tunnus;
-        odota(tunnus);
+    // setting rates based on moves
+    if (moves > 8 && moves < 12){
+        for( i= 0; i < 3; i++){
+            if(i > 1){
+                stars[i].style.visibility = "collapse";
+            }
+        }
+    }
+    else if (moves > 13){
+        for( i= 0; i < 3; i++){
+            if(i > 0){
+                stars[i].style.visibility = "collapse";
+            }
+        }
     }
 }
 
-    function odota(xxx) 
-    {
-        setTimeout(function(){
-            xxx.innerHTML = "";
-        }, 1000);
-    }
+
+// @description game timer
+var second = 0, minute = 0; hour = 0;
+var timer = document.querySelector(".timer");
+var interval;
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = minute+"minuuttia "+second+"sekuntia";
+        second++;
+        if(second == 60){
+            minute++;
+            second=0;
+        }
+        if(minute == 60){
+            hour++;
+            minute = 0;
+        }
+    },1000);
+}
+
+
+// @description congratulations when all cards match, show modal and moves, time and rating
+function congratulations(){
+    if (matchedCard.length == 16){
+        clearInterval(interval);
+        finalTime = timer.innerHTML;
+
+        // show congratulations modal
+        modal.classList.add("show");
+
+        // declare star rating variable
+        var starRating = document.querySelector(".stars").innerHTML;
+
+        //showing move, rating, time on modal
+        document.getElementById("finalMove").innerHTML = moves;
+        document.getElementById("starRating").innerHTML = starRating;
+        document.getElementById("totalTime").innerHTML = finalTime;
+
+        //closeicon on modal
+        closeModal();
+    };
+}
+
+
+// @description close icon on modal
+function closeModal(){
+    closeicon.addEventListener("click", function(e){
+        modal.classList.remove("show");
+        startGame();
+    });
+}
+
+
+// @desciption for user to play Again 
+function playAgain(){
+    modal.classList.remove("show");
+    startGame();
+}
+
+
+// loop to add event listeners to each card
+for (var i = 0; i < cards.length; i++){
+    card = cards[i];
+    card.addEventListener("click", displayCard);
+    card.addEventListener("click", cardOpen);
+    card.addEventListener("click",congratulations);
+};
