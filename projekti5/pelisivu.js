@@ -12,6 +12,7 @@ let counter = document.querySelector(".moves");
 // muuttuja tähdille, tähti-ikoni
 const stars = document.querySelectorAll(".fa-star");
 
+
 // muuttuja korttimatcheille, vähä niinkuin tinderissä ikään
 let matchedCard = document.getElementsByClassName("match");
 
@@ -162,18 +163,19 @@ function moveCounter(){
         startTimer();
     }
     // tähti arviot perustuu siirtojen määrään, mitkä ovat tässä määritetty
-    if (moves > 8 && moves < 12){
+    if (moves > 8 && moves < 16){
         for( i= 0; i < 3; i++){
             if(i > 1){
                 stars[i].style.visibility = "collapse";
             }
         }
+
     }
-    else if (moves > 13){
+    else if (moves > 17){
         for( i= 0; i < 3; i++){
             if(i > 0){
                 stars[i].style.visibility = "collapse";
-            }
+             }
         }
     }
 }
@@ -210,12 +212,13 @@ function congratulations(){
 
         // tähtiluokitus muuttuja
         var starRating = document.querySelector(".tähdet").innerHTML; //Tähän muutettu star => tähdet/Toni 19.4
+        
 
         //näyttää siirrot, tähdet eli rating, ajan popupissa
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
-
+        
         //sulkee popupin
         closeModal();
     };
