@@ -10,6 +10,7 @@ header {
     background: #d0c5e3;
     font-family: 'Shadows Into Light Two', cursive;
 }
+
 .topnav {
   overflow: hidden;
   background-color: #7d81a2;
@@ -49,6 +50,20 @@ header {
     color: black;
     margin-left: 34px;
     }
+
+    .footer {
+      float: left;
+      width: 100%;
+      height: 60px;
+      font-size: 30px;
+      text-align: center;
+      margin-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      background: #d0c5e3;
+      font-family: 'Shadows Into Light Two', cursive;
+    }
+
 
     @media only screen and (max-width: 600px) {
       .card{
