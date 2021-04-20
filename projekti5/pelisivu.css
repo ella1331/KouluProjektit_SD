@@ -51,7 +51,7 @@ body {
 	font-size: 25px;
 }
 
-.laatikko {  /*tämän muutin */
+.container {  /*tämän muutin */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -145,31 +145,19 @@ h1 {
  */
 
 
-.pistePaneeli {
+.score-panel {
 	text-align: left;
 	margin-bottom: 15px;
 }
-/*Muutettu pistepaneeli.star => .tähdet/Toni 19.4 */
-.pistePaneeli .tähdet {
-	margin: 0;
-	padding: 0;
-	display: inline-block;
-	margin: 0 5px 0 0;
-}
-/*Sama juttu tähän kuin ylläolevassa/Toni 19.4 */
-.pistePaneeli .tähdet li  {
-	list-style: none;
-	display: inline-block;
-}
 
-.pistePaneeli .restart {
+
+
+.score-panel .restart {
 	float: right;
 	cursor: pointer;
 }
 
-.fa-star {
-	color: #FFD700;
-}
+
 
 .timer {
 	display: inline-block;
@@ -243,9 +231,7 @@ h1 {
 	opacity: 100 !important;
 }
 
-#starRating li {
-	display: inline-block;
-}
+
 
 #play-again {
 	background-color: #141214;
@@ -351,7 +337,7 @@ h1 {
 ****************/
 
 @media (min-width: 768px) {
-	.laatikko {
+	.container {
 		font-size: 22px;
 	}
 

@@ -9,15 +9,14 @@ const deck = document.getElementById("card-deck");
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-// muuttuja tähdille, tähti-ikoni
-const stars = document.querySelectorAll(".fa-star");
+
 
 
 // muuttuja korttimatcheille, vähä niinkuin tinderissä ikään
 let matchedCard = document.getElementsByClassName("match");
 
- // tähdet lista
- let starsList = document.querySelectorAll(".tähdet li"); //Tähän muutettu star => tähdet/Toni 19.4
+
+ 
 
  // poistuiconi popupissa (x)
  let closeicon = document.querySelector(".close");
@@ -69,11 +68,8 @@ function startGame(){
     // resettaa siirrot
     moves = 0;
     counter.innerHTML = moves;
-    // resettaa tähdet
-    for (var i= 0; i < stars.length; i++){
-        stars[i].style.color = "#FFD700";
-        stars[i].style.visibility = "visible";
-    }
+    
+    
     //resettaa kellon
     second = 0;
     minute = 0;
@@ -81,6 +77,7 @@ function startGame(){
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 minuuttia 0 sekuntia";
     clearInterval(interval);
+    
 }
 
 
@@ -104,6 +101,7 @@ function cardOpen() {
             unmatched();
         }
     }
+    
 };
 
 
@@ -114,6 +112,7 @@ function matched(){
     openedCards[0].classList.remove("show", "open", "no-event");
     openedCards[1].classList.remove("show", "open", "no-event");
     openedCards = [];
+    
 }
 
 
@@ -161,23 +160,11 @@ function moveCounter(){
         minute = 0;
         hour = 0;
         startTimer();
+        
     }
-    // tähti arviot perustuu siirtojen määrään, mitkä ovat tässä määritetty
-    if (moves > 8 && moves < 16){
-        for( i= 0; i < 3; i++){
-            if(i > 1){
-                stars[i].style.visibility = "collapse";
-            }
-        }
-
-    }
-    else if (moves > 17){
-        for( i= 0; i < 3; i++){
-            if(i > 0){
-                stars[i].style.visibility = "collapse";
-             }
-        }
-    }
+   
+ 
+   
 }
 
 
@@ -201,7 +188,7 @@ function startTimer(){
 }
 
 
-//onnittelee kun kaikki kortit on arvattu, näyttää popupin ja siirrot, ajan ja ratingin eli mahdolliset tähdet
+//onnittelee kun kaikki kortit on arvattu, näyttää popupin ja siirrot ja ajan
 function congratulations(){
     if (matchedCard.length == 16){
         clearInterval(interval);
@@ -210,13 +197,12 @@ function congratulations(){
         // näyttää onnittelu popupin
         modal.classList.add("show");
 
-        // tähtiluokitus muuttuja
-        var starRating = document.querySelector(".tähdet").innerHTML; //Tähän muutettu star => tähdet/Toni 19.4
+       
+        
         
 
-        //näyttää siirrot, tähdet eli rating, ajan popupissa
+        //näyttää siirrot, ajan popupissa
         document.getElementById("finalMove").innerHTML = moves;
-        document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
         
         //sulkee popupin
@@ -247,4 +233,5 @@ for (var i = 0; i < cards.length; i++){
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
     card.addEventListener("click",congratulations);
-};
+ }; 
+
