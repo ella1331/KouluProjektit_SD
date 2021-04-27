@@ -9,16 +9,10 @@ const deck = document.getElementById("card-deck");
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-
-
-
 // muuttuja korttimatcheille, vähä niinkuin tinderissä ikään
 let matchedCard = document.getElementsByClassName("match");
 
-
- 
-
- // poistuiconi popupissa (x)
+ // poistu iconi popupissa (x)
  let closeicon = document.querySelector(".close");
 
  // popupille muuttuja
@@ -26,7 +20,6 @@ let matchedCard = document.getElementsByClassName("match");
 
  // taulukko avatuillekorteille
 var openedCards = [];
-
 
 // pakan seikoitus whileloopilla
 
@@ -44,10 +37,8 @@ function shuffle(array) {
     return array;
 };
 
-
 // sivuston avautuessa/päivitettäessä sekoittaa pakan uusiksi
 document.body.onload = startGame();
-
 
 // funktio uuteen peliin
 function startGame(){
@@ -65,11 +56,11 @@ function startGame(){
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
     }
+
     // resettaa siirrot
     moves = 0;
     counter.innerHTML = moves;
-    
-    
+
     //resettaa kellon
     second = 0;
     minute = 0;
@@ -77,9 +68,8 @@ function startGame(){
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 minuuttia 0 sekuntia";
     clearInterval(interval);
-    
-}
 
+}
 
 // määrittää allaolevat classit päälle, kun ylhäällä ne poistettiin peliä alustettaessa
 var displayCard = function (){
@@ -87,7 +77,6 @@ var displayCard = function (){
     this.classList.toggle("show");
     this.classList.toggle("disabled");
 };
-
 
 // lisää käännetyt kortit listaan ja katsoo onko kortit match vai ei
 function cardOpen() {
@@ -101,9 +90,8 @@ function cardOpen() {
             unmatched();
         }
     }
-    
-};
 
+};
 
 // kun kortit on match, lisää molempiin kortteihin classit match ja disabled, toisaalta myös poistaa molemmista show open ja no-event
 function matched(){
@@ -112,9 +100,8 @@ function matched(){
     openedCards[0].classList.remove("show", "open", "no-event");
     openedCards[1].classList.remove("show", "open", "no-event");
     openedCards = [];
-    
-}
 
+}
 
 // kun kortit ei ole match, lisää classi unmatched, 1,1sek päästä suorittaa funktion missä poistetaan classit show open no-event ja unmatched
 //tyhjentää avatutkortit (openedCards) taulukon taas 2 uutta kortia varten
@@ -130,14 +117,12 @@ function unmatched(){
     },1100);
 }
 
-
 // hetkellisesti lisää kortteihin classin disabled, eli niitä ei pysty valitsemaan. Tämä funktio kutsutaan ylläolevassa funktiossa juuri ennen kuin timeout 1,1sek on kulunut
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disabled');
     });
 }
-
 
 // avaa kortit ja laittaa ne matchattuihin kortteihin ja disabloi ne
 function enable(){
@@ -149,7 +134,6 @@ function enable(){
     });
 }
 
-
 // laskee pelaajan siirrot
 function moveCounter(){
     moves++;
@@ -160,13 +144,8 @@ function moveCounter(){
         minute = 0;
         hour = 0;
         startTimer();
-        
     }
-   
- 
-   
 }
-
 
 // pelikello
 var second = 0, minute = 0; hour = 0;
@@ -187,7 +166,6 @@ function startTimer(){
     },1000);
 }
 
-
 //onnittelee kun kaikki kortit on arvattu, näyttää popupin ja siirrot ja ajan
 function congratulations(){
     if (matchedCard.length == 16){
@@ -197,19 +175,13 @@ function congratulations(){
         // näyttää onnittelu popupin
         modal.classList.add("show");
 
-       
-        
-        
-
         //näyttää siirrot, ajan popupissa
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("totalTime").innerHTML = finalTime;
-        
         //sulkee popupin
         closeModal();
     };
 }
-
 
 //  sulkee popupin funktio
 function closeModal(){
@@ -219,13 +191,11 @@ function closeModal(){
     });
 }
 
-
 // pelaa uudestaan funktio
 function playAgain(){
     modal.classList.remove("show");
     startGame();
 }
-
 
 // looppi joka lisää event listenerin joka korttiin
 for (var i = 0; i < cards.length; i++){
@@ -233,5 +203,4 @@ for (var i = 0; i < cards.length; i++){
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
     card.addEventListener("click",congratulations);
- }; 
-
+ };

@@ -4,7 +4,7 @@ header {
   padding: 30px;
   text-align: center;
   background: #d0c5e3;
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Shadows Into Light Two', cursive;
 }
 .topnav {
   overflow: hidden;
@@ -64,10 +64,19 @@ h1 {
 	font-family: 'Architects Daughter', cursive;
 }
 
+.footer {
+  float: left;
+  width: 100%;
+  height: 70px;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+  text-align: center;
+  background: #d0c5e3;
+  font-family: 'Shadows Into Light Two', cursive;
+}
 
-/*
- * Tyylit kortti "pakalle"
- */
+/* Tyylit kortti "pakalle"*/
 
 
 .deck {

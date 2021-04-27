@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link  href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"  rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/v4-shims.js"></script> <!--Nää scripti hommelit piti hakee, että sai tähdet näkyviin. Ruutuun ilmestyi myös ns. reset nuoli millä voi aloittaa suoraan alusta/Toni/20.4-->
     <link rel="stylesheet" href="pelisivu.css">
@@ -17,25 +18,21 @@
     <header>Muistipeli</header>
     <div class="topnav">
       <a href="kotisivu.html">Kotisivu</a>
-
       <a href="mestarienLiiga.html">Mestarien liiga</a>
       <a href="kirjautumisIkkuna.html" style="float: right">Kirjaudu ulos</a>
     </div>
 
-      <div class="container"> 
+      <div class="container">
         <section class="score-panel">
-            
-        	
-
         	<span class="moves">0</span> siirtoa
 
-            <div class="timer">
+          <div class="timer">
             </div>
 
             <div class="restart" onclick="startGame()">
         		<i class="fa fa-repeat"></i>
         	</div>
-            
+
         </section>
 
         <ul class="deck" id="card-deck">
@@ -91,7 +88,8 @@
 
         <div id="popup1" class="overlay">
             <div class="popup">
-                <h2> Onnittelut 🎉</h2>
+              <img src="images/congrats.gif" alt="congrats" height="30%" width="30%">
+                <h2 style="text-align: center;">Onnittelut</h2> <!-- vaihdoin vielä giffin *Elina-->
                 <a class="close" href="#" >×</a>
                 <div class="content-1">
                     Läpäisit pelin!
@@ -107,7 +105,9 @@
         </div>
 
     </div>
+    <div class="footer">
+      <p>Tekijät Elina ja Toni</p>
+    </div>
     <script src="pelisivu.js"></script>
 </body>
 </html>
-
