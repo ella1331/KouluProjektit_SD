@@ -35,7 +35,7 @@ button[slot="hotspot-door"]
     background-color: red;
 }
 
-    #annotation{
+    .annotation{
     background-color: #888888;
     position: absolute;
     transform: translate(10px, 10px);
@@ -74,16 +74,26 @@ button[slot="hotspot-door"]
     
 </head>
 <body>
-    <model-viewer id="car" loading="eager" camera-controls auto-rotate rotation-per-second="40deg" src="kuvat/tesla/scene.gltf">
+    <model-viewer id="car" loading="eager" camera-controls auto-rotate  src="kuvat/tesla/scene.gltf">
+        
+        <!--Testattiin lisätä audio pyörimään taustalle, ja tällä koodinpätkällä senkin saa-->
+
+   <!--<audio controls autoplay loop id="sound">
+    <source src="/audio/Dee Yan-Key - Rainy Holiday.mp3" type="audio/mpeg"/>
+</audio>-->
 
     <button slot="hotspot-tire" data-position="105.9 21.7 156" data-normal="0.95 0 0.29">
-    <div id="annotation">Tämä on rengas!</div></button>
+    <div class="annotation">Tämä on rengas!</div></button>
 
-    <button slot="hotspot-door" data-position="-102.5 49.5 20.3" data-normal="-0.99 -0.05 -0">
-        <div id="annotation">Tämä on ovi!</div></button>
-    </button>
+    <button slot="hotspot-door" data-position="-102.5 49.5 20.3" data-normal="-0.99 -0.05 -0" 
+    onclick="window.open('https://www.youtube.com/embed/XB2g7-HgE_g',
+    'popUpWindow',' left=600, top=300,resizable=1,width=500,height=500');"> <!--Voi lisätä hotspottiin videon-->
+    
+        <div class="annotation">Tämä on ovi!</div></button>
+    
     </model-viewer>
 
+    
 
 </body>
 </html>
