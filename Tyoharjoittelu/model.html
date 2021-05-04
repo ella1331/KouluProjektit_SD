@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
     <title>3D malli</title>
     <!-- Liitetään oikea kirjasto -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
+    
+
+
+    
 <!-- Määritykset muotoiluun-->
     <style>
-    #car
+    #model
         {
             width: 200vh;
-            height: 100vh;
+            height: 90vh;
         }
-/*Laitettiin button-tagin alle "täpät", jotta voidaan sijoittaa sivulla tarkasti tiettyyn kohtaan*/
-    button
-    {
+
+  .hotspot
+  {
+    background-color: aqua;
     display: block;
     width: 20px;
     height: 20px;
     border-radius: 10px;
     border: none;
-    background-color: blue;
     box-sizing: border-box;
+    --min-hotspot-opacity: 0;
   }
+/*Laitettiin button-tagin alle "täpät", jotta voidaan sijoittaa sivulla tarkasti tiettyyn kohtaan*/
+   
     /*kaksi erilaista info täppää sivulla*/
 button[slot="hotspot-tire"]
         {
@@ -36,6 +47,16 @@ button[slot="hotspot-door"]
      --min-hotspot-opacity: 0;
     background-color: red;
 }
+
+.hotspot.selected
+  {
+    background-color: red;
+  }
+
+.hotspot:not(.selected) > .annotation
+{
+  display: none;
+}
 /*annotationit määrittävät info täppien tekstin*/
     .annotation{
     background-color: #888888;
@@ -43,10 +64,10 @@ button[slot="hotspot-door"]
     transform: translate(10px, 10px);
     border-radius: 10px;
     padding: 10px;
+    
   }
-  :not(:defined) > * {
-    display: none;
-  }
+  
+  
 /* Alustettu responsiivisuutta silmällä pitäen
  /* @media (max-width: 320px){
         button
@@ -70,22 +91,127 @@ button[slot="hotspot-door"]
     </style>
   </head>
 <body>
-    <model-viewer id="car" loading="eager" camera-controls auto-rotate rotation-per-second="40deg"  src="kuvat/tesla/scene.gltf">
+  <div id="display">
+    <model-viewer class="" ondblclick="addHotspot()" onclick="selected()" ar id="model" loading="eager" camera-controls src="kuvat/tesla/scene.gltf">
 
         <!--Testattiin lisätä audio pyörimään taustalle, ja tällä koodinpätkällä senkin saa-->
 
    <!--<audio controls autoplay loop id="sound">
-    <source src="/audio/Dee Yan-Key - Rainy Holiday.mp3" type="audio/mpeg"/>
+    <source src="./audio/Dee Yan-Key - Rainy Holiday.mp3" type="audio/mpeg"/>
 </audio>-->
 
-    <button slot="hotspot-tire" data-position="105.9 21.7 156" data-normal="0.95 0 0.29">
+    <!--<button slot="hotspot-tire" class="hotspot" data-position="105.9 21.7 156" data-normal="0.95 0 0.29">
     <div class="annotation">Tämä on rengas!</div></button>
 
-    <button slot="hotspot-door" data-position="-102.5 49.5 20.3" data-normal="-0.99 -0.05 -0"
+    <button slot="hotspot-door" class="hotspot" data-position="-102.5 49.5 20.3" data-normal="-0.99 -0.05 -0"
     onclick="window.open('https://www.youtube.com/embed/XB2g7-HgE_g',
     'popUpWindow',' left=600, top=300,resizable=1,width=500,height=500');"> <!--Voi lisätä hotspottiin videon-->
-    <div class="annotation">Tämä on ovi!</div></button>
-
+    <!--<div class="annotation">Tämä on ovi!</div></button>-->
+    
+    
     </model-viewer>
+    <div id="form">
+    <form onsubmit="return false;">
+    <input type="text" id="hotspotText" name="hotspotText" placeholder="Mitä haluat kirjoittaa hotspottiin?">
+    </form>
+
+    <button style="background-color: rgb(167, 247, 220); height: 4vh;" onclick="removeHotspot()">Poista viimeisin hotspot</button>
+    </div>
+    </div>
+    
+    <script>
+      //Lisää valittuun nappiin classin selected, korostaa punaiseksi
+      function selected()
+      {
+        var header = document.getElementById("model");
+        var hotspots = header.getElementsByClassName("hotspot");
+
+        for (var i = 0; i < hotspots.length; i++)
+        {
+          hotspots[i].addEventListener("click", function()
+          {
+            var current = document.getElementsByClassName("selected");
+            if (current.length > 0)
+            {
+              current[0].className = current[0].className.replace(" selected", "");
+            }
+            this.className += " selected";
+          });
+        }
+      }
+    </script>
+
+    <script>
+      //Laskee lisätyt hotspotit
+      var hotspotCounter = 0;
+      function addHotspot(MouseEvent)
+      {
+        var inputtext = document.querySelector('input').value;
+        //Jos ei inputtiin ole syötetty tekstiä, pyytää syöttämään ensin lisättävän tekstin
+        if (inputtext == "")
+        {
+          alert("Syötä ensin teksti minkä haluat lisätä hotspottiin");
+        }
+        else{
+          const viewer = document.querySelector('#model');
+          const rect = viewer.getBoundingClientRect();
+
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+          const positionAndNormal = viewer.positionAndNormalFromPoint(x, y);
+
+          //Jos mallia ei klikattu, palauta sijainti konsoliin
+          if (positionAndNormal == null)
+          {
+            console.log('no hit result: mouse = ', x, ',',y);
+            return;
+          }
+          const {position, normal} = positionAndNormal;
+
+          //hotspotin luominen
+          const hotspot = document.createElement('button');
+          hotspot.slot = `hotspot-${hotspotCounter ++}`;
+          hotspot.classList.add('hotspot');
+          hotspot.id = `hotspot-${hotspotCounter}`;
+          hotspot.dataset.position = position.toString();
+          if (normal != null)
+          {
+            hotspot.dataset.normal = normal.toString();
+          }
+          viewer.appendChild(hotspot);
+          console.log('mouse = ', x, ',',y,positionAndNormal);
+
+          //Lisää teksti viimeisimpään hotspottiin
+          var element = document.createElement("div");
+          element.classList.add('annotation');
+          element.appendChild(document.createTextNode(inputtext));
+          document.getElementById(`hotspot-${hotspotCounter}`).appendChild(element);
+
+          document.querySelector('input').value = "";
+        }
+      }
+    </script>
+
+    <script>
+
+      //Hotspotin poisto
+      function removeHotspot()
+      {
+        var el = document.getElementById(`hotspot-${hotspotCounter}`);
+
+        if (el == null)
+        {
+          alert("Ei hotspotteja poistettavana");
+        }
+        else
+        {
+          hotspotCounter --;
+          el.remove()
+        };
+      }
+    </script>
+    
   </body>
+
+  
 </html>
