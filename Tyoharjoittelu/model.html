@@ -11,10 +11,10 @@
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
-    
 
 
-    
+
+
 <!-- Määritykset muotoiluun-->
     <style>
     #model
@@ -34,6 +34,19 @@
     box-sizing: border-box;
     --min-hotspot-opacity: 0;
   }
+/*Laitettiin button-tagin alle "täpät", jotta voidaan sijoittaa sivulla tarkasti tiettyyn kohtaan*/
+
+    /*kaksi erilaista info täppää sivulla*/
+button[slot="hotspot-tire"]
+        {
+     --min-hotspot-opacity: 0;
+    background-color: red;
+        }
+button[slot="hotspot-door"]
+{
+     --min-hotspot-opacity: 0;
+    background-color: red;
+}
 
 .hotspot.selected
   {
@@ -51,10 +64,10 @@
     transform: translate(10px, 10px);
     border-radius: 10px;
     padding: 10px;
-    
+
   }
-  
-  
+
+
 /* Alustettu responsiivisuutta silmällä pitäen
  /* @media (max-width: 320px){
         button
@@ -79,7 +92,7 @@
   </head>
 <body>
   <div id="display">
-    <model-viewer class="" ondblclick="addHotspot()" onclick="selected()" ar id="model" loading="auto" camera-controls src="kuvat/tesla/scene.gltf">
+    <model-viewer class="" ondblclick="addHotspot()" onclick="selected()" ar id="model" loading="eager" camera-controls src="kuvat/tesla/scene.gltf">
 
         <!--Testattiin lisätä audio pyörimään taustalle, ja tällä koodinpätkällä senkin saa-->
 
@@ -89,23 +102,25 @@
 
     <!--<button slot="hotspot-tire" class="hotspot" data-position="105.9 21.7 156" data-normal="0.95 0 0.29">
     <div class="annotation">Tämä on rengas!</div></button>
-
     <button slot="hotspot-door" class="hotspot" data-position="-102.5 49.5 20.3" data-normal="-0.99 -0.05 -0"
     onclick="window.open('https://www.youtube.com/embed/XB2g7-HgE_g',
     'popUpWindow',' left=600, top=300,resizable=1,width=500,height=500');"> <!--Voi lisätä hotspottiin videon-->
     <!--<div class="annotation">Tämä on ovi!</div></button>-->
-    
-    
-    </model-viewer>
+
+
+
     <div id="form">
     <form onsubmit="return false;">
-    <input type="text" id="hotspotText" name="hotspotText" placeholder="Mitä haluat kirjoittaa hotspottiin?">
+    <textarea type="text" id="hotspotText" style="width: 300px; height: 50px; margin-top: 20px;" name="hotspotText" placeholder="Mitä haluat kirjoittaa hotspottiin?"></textarea>
     </form>
-
+    <br>
     <button style="background-color: rgb(167, 247, 220); height: 4vh;" onclick="removeHotspot()">Poista viimeisin hotspot</button>
+    <p>Kun haluat lisätä hotspotin:<br>1) Kirjoita tekstikenttään lisättävä teksti<br>2) Tuplaklikkaa kohtaa mallissa mihin haluat lisätä täpän</p>
+    <p>Painamalla täppää saat lisätyn tekstin näkyviin.</p>
+      </model-viewer>
     </div>
     </div>
-    
+
     <script>
       //Lisää valittuun nappiin classin selected, korostaa punaiseksi
       function selected()
@@ -133,7 +148,7 @@
       var hotspotCounter = 0;
       function addHotspot(MouseEvent)
       {
-        var inputtext = document.querySelector('input').value;
+        var inputtext = document.querySelector('textarea').value;
         //Jos ei inputtiin ole syötetty tekstiä, pyytää syöttämään ensin lisättävän tekstin
         if (inputtext == "")
         {
@@ -174,7 +189,7 @@
           element.appendChild(document.createTextNode(inputtext));
           document.getElementById(`hotspot-${hotspotCounter}`).appendChild(element);
 
-          document.querySelector('input').value = "";
+          document.querySelector('textarea').value = "";
         }
       }
     </script>
@@ -197,10 +212,7 @@
         };
       }
     </script>
-    <p>Kun haluat lisätä hotspotin:<br>1) Kirjoita tekstikenttään lisättävä teksti<br>2) Tuplaklikkaa kohtaa mallissa mihin haluat lisätä täpän</p>
-    <p>Painamalla täppää saat lisätyn tekstin näkyviin</p>
-    
   </body>
 
-  
+
 </html>
