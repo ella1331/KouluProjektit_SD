@@ -11,10 +11,10 @@
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
-    
 
 
-    
+
+
 <!-- Määritykset muotoiluun-->
     <style>
     #model
@@ -35,7 +35,7 @@
     --min-hotspot-opacity: 0;
   }
 /*Laitettiin button-tagin alle "täpät", jotta voidaan sijoittaa sivulla tarkasti tiettyyn kohtaan*/
-   
+
     /*kaksi erilaista info täppää sivulla*/
 button[slot="hotspot-tire"]
         {
@@ -64,10 +64,10 @@ button[slot="hotspot-door"]
     transform: translate(10px, 10px);
     border-radius: 10px;
     padding: 10px;
-    
+
   }
-  
-  
+
+
 /* Alustettu responsiivisuutta silmällä pitäen
  /* @media (max-width: 320px){
         button
@@ -107,18 +107,19 @@ button[slot="hotspot-door"]
     onclick="window.open('https://www.youtube.com/embed/XB2g7-HgE_g',
     'popUpWindow',' left=600, top=300,resizable=1,width=500,height=500');"> <!--Voi lisätä hotspottiin videon-->
     <!--<div class="annotation">Tämä on ovi!</div></button>-->
-    
-    
-    </model-viewer>
+
+
+
     <div id="form">
     <form onsubmit="return false;">
-    <input type="text" id="hotspotText" name="hotspotText" placeholder="Mitä haluat kirjoittaa hotspottiin?">
+    <textarea type="text" id="hotspotText" style="width: 300px; height: 50px; margin-top: 20px;" name="hotspotText" placeholder="Mitä haluat kirjoittaa hotspottiin?"></textarea>
     </form>
-
+    <br>
     <button style="background-color: rgb(167, 247, 220); height: 4vh;" onclick="removeHotspot()">Poista viimeisin hotspot</button>
+      </model-viewer>
     </div>
     </div>
-    
+
     <script>
       //Lisää valittuun nappiin classin selected, korostaa punaiseksi
       function selected()
@@ -146,7 +147,7 @@ button[slot="hotspot-door"]
       var hotspotCounter = 0;
       function addHotspot(MouseEvent)
       {
-        var inputtext = document.querySelector('input').value;
+        var inputtext = document.querySelector('textarea').value;
         //Jos ei inputtiin ole syötetty tekstiä, pyytää syöttämään ensin lisättävän tekstin
         if (inputtext == "")
         {
@@ -187,7 +188,7 @@ button[slot="hotspot-door"]
           element.appendChild(document.createTextNode(inputtext));
           document.getElementById(`hotspot-${hotspotCounter}`).appendChild(element);
 
-          document.querySelector('input').value = "";
+          document.querySelector('textarea').value = "";
         }
       }
     </script>
@@ -212,8 +213,8 @@ button[slot="hotspot-door"]
     </script>
     <p>Kun haluat lisätä hotspotin:<br>1) Kirjoita tekstikenttään lisättävä teksti<br>2) Tuplaklikkaa kohtaa mallissa mihin haluat lisätä täpän</p>
     <p>Painamalla täppää saat lisätyn tekstin näkyviin</p>
-    
+
   </body>
 
-  
+
 </html>
