@@ -34,19 +34,6 @@
     box-sizing: border-box;
     --min-hotspot-opacity: 0;
   }
-/*Laitettiin button-tagin alle "täpät", jotta voidaan sijoittaa sivulla tarkasti tiettyyn kohtaan*/
-   
-    /*kaksi erilaista info täppää sivulla*/
-button[slot="hotspot-tire"]
-        {
-     --min-hotspot-opacity: 0;
-    background-color: red;
-        }
-button[slot="hotspot-door"]
-{
-     --min-hotspot-opacity: 0;
-    background-color: red;
-}
 
 .hotspot.selected
   {
@@ -92,7 +79,7 @@ button[slot="hotspot-door"]
   </head>
 <body>
   <div id="display">
-    <model-viewer class="" ondblclick="addHotspot()" onclick="selected()" ar id="model" loading="eager" camera-controls src="kuvat/tesla/scene.gltf">
+    <model-viewer class="" ondblclick="addHotspot()" onclick="selected()" ar id="model" loading="auto" camera-controls src="kuvat/tesla/scene.gltf">
 
         <!--Testattiin lisätä audio pyörimään taustalle, ja tällä koodinpätkällä senkin saa-->
 
