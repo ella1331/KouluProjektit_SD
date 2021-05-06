@@ -18,13 +18,7 @@
       </style>
 </head>
 <body>
-    <h1>Model-viewer</h1>
-    <p>Tässä voimme käyttää model-vieweriä suoraan html sivulla iframessa. Hakee model.html sivun tähän (sivu missä itse malli on) <iframe src="model.html" style="height: 100%; width: 100%; border:none;"></iframe><br>Se näyttää tältä</p>
-
-    <br><br>
-
-    <p> Voimme myöskin käyttää model-vieweriä suoraan html elementtinä, suoraan model-viewer tägeillä, ilman hakua toiselta sivulta.    <model-viewer onclick="location.href = 'model.html';" camera-controls auto-rotate rotation-per-second="40deg"  src="kuvat/tesla/scene.gltf">
-        </model-viewer><br>Kas näin! Model-viewer elementtiin voi upottaa myös linkin, niin kuin tässä. Painamalla mallia voidaan siirtyä itse model sivulle</p>
+    <input type="file" id="input" multiple>
     
 </body>
 </html>
