@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="projekti6.css">
+
+    <title>Paikallinen tallennus</title>
+  </head>
+  <body>
+<h1>Kysely lomake</h1>
+
+<form id="kyselyLomake">
+  <label for="etunimi">Etunimi</label><br>
+  <input type="text" name="etunimi" id="etunimi" placeholder="Etunimi"><br>
+  <label for="sukunimi">Sukunimi</label><br>
+  <input type="text" name="suku" id="sukunimi" placeholder="Sukunimi"><br>
+  <label for="lähiosoite">Lähisoite</label><br>
+  <input type="text" name="lähiosoite" id="lähiosoite" placeholder="Lähiosoite"><br>
+  <label for="postiNumero">Postinumero</label><br>
+  <input type="text" name="posti" id="postinumero" placeholder="Postinumero"><br>
+  <label for="posti">Postitoimipaikka</label><br>
+  <input type="text" name="toimiPaikka" id="postiToimiPaikka" placeholder="Postitoimipaikka"><br>
+  <label for="puhelin">Puhelin</label><br>
+  <input type="text" name="puh" id="puh" placeholder="Puhelin"><br>
+  <label for="email">Email</label><br>
+  <input type="text" name="email" id="maili" placeholder="Email"><br>
+<br><br>
+  <button id="painike" type="button" name="button" onclick="tallenna()">Tallenna tiedot</button>
+  <button id="reset"  type="button" name="tyhjennä">Tyhjennä lomake</button>
+    </form>
+    <div class="laatikko" id="tulos">
+<button id="lue" type="button" name="button" onclick="listaa()">Näytä tiedot</button>
+<button id="poista"  type="button" name="poista" onclick="deleteItems()">Poista tallennetut tiedot</button>
+
+    </div>
+    <script src="projekti6.js"></script>
+  </body>
+</html>

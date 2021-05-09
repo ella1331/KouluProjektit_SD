@@ -1,0 +1,53 @@
+
+h1{
+  font-size: 70px;
+  text-align: center;
+  padding: 30px;
+  text-align: center;
+  background: #d0c5e3;
+  font-family: 'Neucha', cursive;
+}
+#kyselyLomake {
+  border-style: solid;
+  float: left;
+  padding: 8%;
+  margin-left: 1%;
+  background-color: rgb(209, 230, 244);
+  font-family: 'Neucha', cursive;
+  font-size: 22px;
+}
+
+#etunimi, #sukunimi, #lähiosoite, #postinumero, #postiToimiPaikka, #puh, #maili {
+  border-style: solid;
+  border-radius: 5%;
+  width: 350px;
+  height: 20px;#c9e5f1
+}
+
+#painike {
+  background-color: rgb(152, 164, 168);
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+}
+
+#reset {
+  background-color: rgb(152, 164, 168);
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+}
+
+.laatikko {
+  border-style: solid;
+  float: left;
+  padding: 8%;
+  margin-left: 1%;
+  background-color: rgb(209, 230, 244);
+  font-family: 'Neucha', cursive;
+  font-size: 22px;
+}
+
+#lue, #poista {
+  background-color: rgb(152, 164, 168);
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+}
