@@ -14,25 +14,33 @@
 
 <form id="kyselyLomake">
   <label for="etunimi">Etunimi</label><br>
-  <input type="text" name="etunimi" id="etunimi" placeholder="Etunimi"><br>
+    <input type="text" name="etunimi" id="etunimi" placeholder="Etunimi"><br>
   <label for="sukunimi">Sukunimi</label><br>
-  <input type="text" name="suku" id="sukunimi" placeholder="Sukunimi"><br>
+    <input type="text" name="suku" id="sukunimi" placeholder="Sukunimi"><br>
   <label for="lähiosoite">Lähisoite</label><br>
-  <input type="text" name="lähiosoite" id="lähiosoite" placeholder="Lähiosoite"><br>
+    <input type="text" name="lähiosoite" id="lähiosoite" placeholder="Lähiosoite"><br>
   <label for="postiNumero">Postinumero</label><br>
-  <input type="text" name="posti" id="postinumero" placeholder="Postinumero"><br>
+    <input type="number" name="posti" id="postinumero" placeholder="Postinumero"><br> <!--Muutettu number muotoon, hyväksyy vain numeroita/Toni 17.5-->
   <label for="posti">Postitoimipaikka</label><br>
-  <input type="text" name="toimiPaikka" id="postiToimiPaikka" placeholder="Postitoimipaikka"><br>
+    <input type="text" name="toimiPaikka" id="postiToimiPaikka" placeholder="Postitoimipaikka"><br>
   <label for="puhelin">Puhelin</label><br>
-  <input type="text" name="puh" id="puh" placeholder="Puhelin"><br>
+    <input type="number" name="puh" id="puh" placeholder="Puhelin"><br> <!--Sama juttu kuin postinumero/Toni 17.5-->
   <label for="email">Email</label><br>
-  <input type="text" name="email" id="maili" placeholder="Email"><br>
+    <input type="email" name="email" id="maili" placeholder="Email"><br><!--Muutettu tyypiksi email, hyväksyy vain kunnollisen sähköpostin/Toni 17.5-->
 <br><br>
-  <button id="painike" type="button" name="button">Tallenna tiedot</button>
+
+  <button id="painike" type="submit" name="button">Tallenna tiedot</button>  <!--Muutin submitiksi niin pystyy käyttämään noita formin input muotoja, eli vaatii kunnollisia tietoja/Toni 17.5-->
   <button id="reset"  type="button" name="tyhjennä">Tyhjennä lomake</button>
     </form>
     <div class="laatikko" id="tulos">
+      <p id="otsikkoLaatikko" style="font-size: larger; font-weight: bold;"></p> <!--Lisätty vähän tyyliä tuohon otsikkoon, ilmestyy siis kun tiedot on haettu/Toni 17.5-->
       <p id="retunimi"></p>
+      <p id="rsukunimi"></p>
+      <p id="rosoite"></p>
+      <p id="rpostinumero"></p>
+      <p id="rpostipaikka"></p>
+      <p id="rpuhelin"></p>
+      <p id="remail"></p>
 <button id="lue" type="button" name="button" onclick="listaa()">Näytä tiedot</button>
 <button id="poista"  type="button" name="poista" onclick="deleteItems()">Poista tallennetut tiedot</button>
 
