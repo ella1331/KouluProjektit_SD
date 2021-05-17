@@ -51,6 +51,10 @@ function lisääListaanPainettaessa()
     {
         luoLista(); //kutsuu luoLista funktiota (eli lisää listaan kamaa)
     }
+    else
+    {
+        alert("Syötä ensin lisättävä tehtävä");
+    }
 }
 
 function lisääListaanEnterillä(event)
@@ -58,5 +62,9 @@ function lisääListaanEnterillä(event)
     if(textareaPituus() > 0 && event.which === 13) //tarkistaa tekstialueeseen on syötetty jotain JA tämän lisäksi tarkistaa onko Enter painettu (Enter näppäimen avainkoodi on 13, voidaan kirjoittaa event.whichin sijasta myös muotoon event.keyCode === 13)
     {
         luoLista(); //kutsuu luoLista funktiota (eli lisää taas kamaa listaan)
+    }
+    else
+    {
+        alert("Syötä ensin lisättävä tehtävä")
     } 
 }

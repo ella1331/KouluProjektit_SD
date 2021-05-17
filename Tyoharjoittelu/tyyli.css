@@ -1,0 +1,49 @@
+#model
+{
+    width: 200vh;
+    height: 80vh;
+}
+
+.hotspot
+{
+background-color: aqua;
+display: block;
+width: 20px;
+height: 20px;
+border-radius: 10px;
+border: none;
+box-sizing: border-box;
+--min-hotspot-opacity: 0;
+}
+/*Laitettiin button-tagin alle "täpät", jotta voidaan sijoittaa sivulla tarkasti tiettyyn kohtaan*/
+
+/*kaksi erilaista info täppää sivulla*/
+button[slot="hotspot-tire"]
+{
+--min-hotspot-opacity: 0;
+background-color: red;
+}
+button[slot="hotspot-door"]
+{
+--min-hotspot-opacity: 0;
+background-color: red;
+}
+
+.hotspot.selected
+{
+background-color: red;
+}
+
+.hotspot:not(.selected) > .annotation
+{
+display: none;
+}
+/*annotationit määrittävät info täppien tekstin*/
+.annotation{
+background-color: #888888;
+position: absolute;
+transform: translate(10px, 10px);
+border-radius: 10px;
+padding: 10px;
+
+}
